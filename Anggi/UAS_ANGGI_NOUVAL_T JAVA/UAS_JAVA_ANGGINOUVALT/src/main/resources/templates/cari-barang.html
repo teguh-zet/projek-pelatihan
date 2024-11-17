@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>cari</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+    <nav>
+        <div class="container-1">
+            <h1>GivaltStore</h1>
+            <div class="search">
+                <form action="#" th:action="@{/search}" method="get">
+                  <input
+                    type="text"
+                    placeholder="Cari Berdasarkan Nama barang...."
+                    name="search" style="width: 300px; height: 30px; border-radius: 10px;"
+                  />
+                  <input type="submit" value="Cari" style="width: 40px; border-radius: 20px; height: 30px;">
+                </form>
+              </div>
+            <ul class="menu">
+                <li class="nav-item"><a href="#">Home</a></li>
+     
+                <li class="nav-item"><a href="/logout">Logout</a></li>
+                <li class="nav-item"><a href="/add-barang">Tambah Barang</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+       
+    </nav>
+    <div class="product-container">
+        <div class="box" th:each=" x : ${barangs}">
+            <img class="gambar"th:src="${x.gambar}" alt="" >
+            <h4 class="title" th:text="${x.nama}"></h4>
+            <div class="harga-stock">
+                <div class="box-harga">
+                    <p style="margin-right: 20px; color: rgb(41, 37, 37);">Harga :  </p> <p style="color: rgb(56, 60, 60);">Rp. </p> <p class="price" th:text="${x.harga}"></p>
+
+                </div>
+                <div class="box-harga">
+                    <p style="margin-right: 20px;">Stoke :</p> <p style="color: rgb(29, 114, 29);">Pcs.</p>
+                    <p class="stok" style="color: rgb(29, 114, 29);" th:text="${x.stok }"></p>
+
+                </div>
+                <p class="rating"></p>
+                <button style="background-color: yellow !important; padding: 2px; border-radius: 10px !important;">
+                    <a th:href="@{/update-barang/{id}(id=${x.id})}" style="color: black !important; text-decoration: none !important;">update</a>
+                </button>
+                <button style=" background-color: red !important; padding: 2px; border-radius: 10px !important;">
+                    <a th:href="@{/delete-barang/{id}(id=${x.id})}" style="text-decoration: none !important; color: black !important;">Delete</a>
+                </button>
+      
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

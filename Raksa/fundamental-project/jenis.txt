@@ -1,0 +1,15 @@
+akhwat :
+gamis
+tunik
+kaftan
+abaya
+
+ikhwan : 
+baju koko
+sherwani
+sirwal
+kurta
+
+
+cara akses text area
+<span th:text="${comments}"></span>

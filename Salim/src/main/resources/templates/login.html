@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:replace="~{fragments/header_page:: common}"></header>
+    <main>
+        <section class="vh-30">
+            <div class="container py-5 h-30">
+                <div class="row d-flex align-items-center justify-content-center h-30">
+                    <div class="col-md-8 col-lg-7 col-xl-6 h-30">
+                        <img th:src="@{/img/image-login.jpg}"
+                            class="img-fluid" alt="Phone image">
+                    </div>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 shadow-sm p-4">
+                        <div class="alert-dismissible m-2">
+                        <div class="alert alert-warning" th:if="${param.error}">
+                            Nama Pengguna Dan Password Tidak Valid.</div>
+                        <div class="alert alert-danger" th:if="${param.logout}">
+                            Anda Telah Keluar.</div>
+                            </div>
+                        <h3>Login Form</h3>
+                        <form th:action="@{/login}" method="post">
+                            <!-- Username input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="user-field">Nama Pengguna</label>
+                                <input type="text" id="user-field" class="form-control form-control-lg" name="username" pattern="[a-zA-Z0-9]+" required />
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Kata Sandi</label>
+                                <input type="password" id="password" class="form-control form-control-lg" name="password" pattern="[a-zA-Z0-9]+" required />
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Masuk</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script th:replace="~{fragments/common :: script}"></script>
+    <footer th:replace="~{fragments/footer_page :: common}"></footer>
+</body>
+
+</html>

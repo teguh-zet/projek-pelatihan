@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                   <th>NO</th>
+                   <th>DAERAH TPA</th>
+                   <th>PENANGGUNG JAWAB</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <div th:each="p,n : ${data}">
+                    <tr th:each="m : ${p.idMember}">
+                        <td th:text="${n.count}"></td>
+                        <td th:text="${p.tpa_area}"></td>
+                        <td th:text="${m.name}"></td>
+                        <td><a th:href="@{/ppmb/delete/{id}(id=${p.id})}">Hapus</a></td>
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+        <a th:href="@{/auth/add/}">Daftar Sebagai PPMB</a>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

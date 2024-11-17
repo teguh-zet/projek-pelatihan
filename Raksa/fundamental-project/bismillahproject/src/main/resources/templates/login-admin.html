@@ -1,0 +1,121 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>login</title>
+    </head>
+
+    <body>
+        <h1>Silahkan Login</h1>
+        <form th:action="@{/login}" method="post">
+            <input type="hidden" th:field="${adminLogin.id}">
+            <input type="text" th:field="${adminLogin.username}" required>
+            <input type="text" th:field="${adminLogin.password}" required>
+            <button type="submit">Login Admin</button>
+        </form>
+    </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 3px;
+            padding: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .floating-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            pointer-events: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus+.floating-label,
+        .form-control:not(:placeholder-shown)+.floating-label {
+            top: -12px;
+            left: 5px;
+            font-size: 12px;
+            color: #3498db;
+        }
+
+        .login-btn {
+            width: 100%;
+        }
+
+        /* Styling for validation error messages */
+        .error-message {
+            color: #dc3545;
+            font-size: 80%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="login-container">
+            <h2>Login Admin</h2>
+            <form th:action="@{/admin-login}" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username" required>
+                    <label class="floating-label">Username:</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <label class="floating-label">Password:</label>
+                </div>
+                <button type="submit" class="btn btn-primary login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

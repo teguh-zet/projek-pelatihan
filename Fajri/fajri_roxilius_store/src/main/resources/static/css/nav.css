@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Foldit:wght@600&family=Merienda:wght@900&display=swap');
+
+.nav-hp {
+    display: none !important;
+}
+
+@media (max-width: 801px) {
+    .nav-lt {
+        display: none !important;
+    }
+    .nav-hp {
+        display: flex !important;
+    }
+}
+
+body {
+    font-family: 'Merienda', cursive;
+    overflow-x: hidden;
+    background-image: url('../fragments/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}

@@ -1,0 +1,32 @@
+/* form search */
+form {
+    margin: 10px 0;
+    background-color: transparent;
+    border: lightblue solid 1px;
+    border-radius: 20px;
+    display: flex;
+}
+
+form .keyword {
+    color: white;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: 0;
+}
+.keyword::placeholder{
+    color: whitesmoke;
+}
+form button {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+form button .bx {
+    color: lightblue;
+    font-size: 16px;
+    background-color: transparent;
+    cursor: pointer;
+}

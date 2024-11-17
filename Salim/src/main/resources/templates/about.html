@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:replace="~{fragments/header_page:: common}"></header>
+    <main>
+        <section class="vh-30">
+            <div class="container py-5 h-30">
+                <div class="row d-flex align-items-center justify-content-center h-30">
+                    <div class="col-md-8 col-lg-7 col-xl-6 h-30">
+                        <img th:src="@{/img/image-login.jpg}"
+                            class="img-fluid" alt="Phone image">
+                    </div>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 shadow-sm p-4">
+                        <h3>System PUB&trade;</h3>
+                        <hr>
+                        <p>
+                            Sebuah Sistem Berbasis Web Menggunakan Framework Java Spring Boot. Tujuan Aplikasi Ini Dibuat untuk membantu memudahkan kepengurusan dalam menjalankan tugas nya, serta memudahkan akses bagi mahasiswa PUB untuk melihat data-datanya
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script th:replace="~{fragments/common :: script}"></script>
+    <footer th:replace="~{fragments/footer_page :: common}"></footer>
+</body>
+
+</html>

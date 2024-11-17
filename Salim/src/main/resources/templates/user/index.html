@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:insert="~{fragments/common :: head}">
+    </head>
+    
+    <body>
+        <header th:insert="~{fragments/header_page :: user}"></header>
+        <main class="container-fluid">
+            <p class="alert alert-warning" th:text="${'Selamat Datang, '+member.name+'!'}"></p>
+            <table class="table">
+            <tr>
+                <td>Asrama</td>
+                <td th:text="${dataasrama}"></td>
+            </tr>
+            <tr>
+                <td>Sisa Poin Sholat</td>
+                <td th:text="${poin}"></td>
+                <td>hafalan</td>
+                <td th:text="${hafalan}"></td>
+            </tr>
+            <tr>
+                <td>TPA Daerah</td>
+                <td th:text="${datappmb}"></td>
+            </tr>
+            <tr>
+                <td>Piket Kampus</td>
+                <td th:text="${piketday}"></td>
+                <td th:text="${piketroom}"></td>
+            </tr>
+            <tr>
+                <td>Vocabullary</td>
+                <td th:text="${vocab+' Kata'}"></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Cek Keikutsertaan Divisi</td>
+            </tr>
+                <td>Divisi Pendidikan Dan Pelatihan</td>
+                <td th:text="${datadivpendidikan}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Pelatihan Bahasa Inggris</td>
+                <td th:text="${datadivpelatihaninggris}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Kesejahteraan</td>
+                <td th:text="${datadivkesejahteraan}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Kerohanian</td>
+                <td th:text="${datadivkerohanian}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Kesehatan</td>
+                <td th:text="${datadivkesehatan}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Kebersihan</td>
+                <td th:text="${datadivkebersihan}">-</td>
+            </tr>
+            <tr>
+                <td>Divisi Keasramaan</td>
+                <td th:text="${datadivkeasramaan}">-</td>
+            </tr>
+        </table>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: user}"></footer>
+</body>
+
+</html>

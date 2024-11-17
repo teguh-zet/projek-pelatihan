@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>pembayaran</title>
+    <link rel="stylesheet" th:href="@{/css/keranjang.css}">
+
+</head>
+
+<body>
+    <h1 style="margin-left: 550px; font-family: Arial, Helvetica, sans-serif; color: rgb(64, 117, 99);">PEMBAYARAN</h1>
+
+    <table border="1" cellspacing="0">
+        
+        <thead>
+         
+            
+            <tr>
+                <th>No </th>
+                <th>Gambar</th>
+                <th>nama barang</th>
+                <th>tipe</th>
+                <th>Harga</th>          
+                <th>jumlah di beli</th>
+                <th>Total Harga</th> <!-- Tambah kolom Total Harga -->
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr th:each="x, y : ${keranjangs}"> 
+                <td th:text="${y.index + 1}"></td>
+                <td><img th:src="${x.id_Barang.gambar}" alt="" style="width: 200px !important;height: 100px;"></td>
+                <td th:text="${x.id_Barang.nama}"></td>
+                <td th:text="${x.id_Barang.tipe}"></td>
+                <td th:text="${x.id_Barang.harga}"></td>  
+                <td th:text="${x.banyak}"></td>
+  
+                <td>
+                    <!-- Tambah ekspresi aritmatika untuk menampilkan total harga -->
+                    <span th:text="${x.id_Barang.harga * x.banyak}"></span>
+                </td>
+
+
+                <td>
+                </td>
+                <tr th:each=" k: ${user}">
+                    <th>penggunaa </th>
+                    <td th:text="${k.nama}"></td>
+                    <td th:text="${k.uang}"></td>
+                    <th>jumlah yang harus di bayar</th>
+                    <td th:text="${k.utang}"></td>
+                    <td>  <button style="background-color: green;"><a href="/pembayaran">bayar</a></button></td>
+                    <td>    <button style="background-color: yellow;"><a href="/home-user">kembali</a></button>
+                    </td>
+                </tr>
+            </tr>
+        </tbody>
+    </table>
+  
+
+
+</body>
+
+</html>

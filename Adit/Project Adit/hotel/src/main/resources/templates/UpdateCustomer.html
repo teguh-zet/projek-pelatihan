@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Update Customer</title>
+    <style>body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .elem-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    
+    hr {
+      border: 1px solid #ddd;
+      margin: 15px 0;
+    }
+    
+    .inlined {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1>Update Customer</h1>
+    <form th:action="@{/customer}" method="post"
+    enctype="multipart/form-data">
+        <!-- <input type="hidden" th:field="*{idRoom.id}" th:value="${booking.idRoom.id}" /> -->
+        <input type="hidden" th:field="${customer.idBooking}" />
+        <input type="hidden" th:field="${customer.user}">
+        <div class="elem-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="visitor_name" placeholder="John Doe" th:field="${customer.name}">
+        </div>
+        <div class="elem-group">
+          <label for="name">Your Email</label>
+          <input type="text" id="email" name="visitor_name" placeholder="John Doe" th:field="${customer.email}">
+        </div>
+        <div class="elem-group">
+          <label for="name">Your Gender</label>
+          <select th:field="${customer.gender}"  name="gender">
+            <option th:value="male">Male</option>
+            <option th:value="female">Female</option>
+        </select>
+          </div>
+        <div class="elem-group">
+          <label for="phone">Your Phone</label>
+          <input type="tel" id="phone" name="visitor_phone" placeholder="498-348-3872" th:field="${customer.phone}">
+        </div>
+        <hr>
+        <div class="elem-group inlined">
+          <input
+            type="hidden"
+            id="checkin-date"
+            name="checkin"
+            th:field="${customer.checkInDate}"
+          />
+        </div>
+        <div class="elem-group inlined">
+          <input
+            type="hidden"
+            id="checkout-date"
+            name="checkout"
+            th:field="${customer.checkOutDate}"
+          />
+        </div>
+        <hr />
+      <input type="submit" value="Save Customer" />
+    </form>
+  </body>
+</html>

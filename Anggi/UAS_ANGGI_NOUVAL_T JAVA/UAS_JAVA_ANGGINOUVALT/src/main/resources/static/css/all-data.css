@@ -1,0 +1,90 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ecf0f1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ 
+        background-image: url(https://img.freepik.com/premium-photo/3d-rendering-shoping-cart-minimal-earth_172660-443.jpg) ;
+        background-size: cover;
+    
+    
+    
+}
+
+.profile-container {
+    background-color: #3498db;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+}
+
+.profile-header {
+    background-color: #2980b9;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    margin-bottom: 20px;
+    background-color: #fff; /* Fallback color for browsers that don't support gradients */
+    background: linear-gradient(45deg, #e74c3c, #3498db);
+}
+
+h2, p {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.profile-details {
+    padding: 20px;
+    text-align: left;
+    background-color: #fff;
+}
+
+.detail-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.detail-value {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.warning {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #27ae60;
+}
+
+.money {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e67e22;
+    margin-top: 10px;
+}

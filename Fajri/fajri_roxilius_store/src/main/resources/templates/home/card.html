@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>You cart</title>
+    <!-- Shorcut Icon -->
+    <link rel="shortcut icon" href="/fragments/rog-eye.png">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- footer css -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/card.css}">
+</head>
+
+<body>
+
+    <nav class="navbar mb-5 navbar-expand-lg sticky-top navbar-light bg-body-tertiary"
+        style="background-color: #191c24 !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" th:href="@{/home}">Roxilius Store</a>
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/home}"><i class="fas fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" th:href="@{/show-card}"><i class="fas fa-basket-shopping"></i>My
+                            Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/profile}"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid">
+        <div class="py-3 mb-5">
+            <div class="card  card-registration card-registration-2 m-auto"
+                style="border-radius: 15px; background-color: #191c24c3; width: 85% !important;">
+                <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col-lg-8">
+                            <div class="p-5 h-custom overflow-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-5">
+                                    <h1 class="fw-small mb-0 text-light">Your Cart</h1>
+                                    <h6 class="mb-0 text-light" th:text="${items}"></h6>
+                                </div>
+                                <!-- Cards -->
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <div class="row mb-4 d-flex justify-content-between align-items-center"
+                                    th:each="c : ${card}" th:object="${c}">
+                                    <!-- image -->
+                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <img th:src="*{product.image}" class="img-fluid rounded-3" alt="Laptop">
+                                    </div>
+                                    <!-- merk -->
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <a th:href="@{/detail-product/{merk}(merk=*{product.merk})}">
+                                            <h5 class="text-light" th:text="*{product.merk}"></h5>
+                                        </a>
+                                    </div>
+                                    <!-- qty -->
+                                    <div class="col-md-3 col-lg-2 col-xl-2 text-center">
+                                        <i style="font-size: 12px;" class="text-primary" th:text="*{product.price}"></i>
+                                        <i class="text-light">X </i><i class="text-light" th:text="*{qty}"></i> <i
+                                            class="text-light">pcs</i>
+                                    </div>
+                                    <!-- total -->
+                                    <div class="col-md-3 col-lg-2 col-xl-2">
+                                        <i style="font-size: 12px;" class="text-primary" th:text="*{total}"></i>
+                                    </div>
+                                    <!-- delete -->
+                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                        <a th:href="@{/delete-card/{id}(id=*{id})}" class="text-danger"><i
+                                                class="fas fa-times"></i></a>
+                                    </div>
+                                    <hr class="my-2" style="border-top: red solid 2px;">
+                                </div>
+                            </div>
+                            <!-- back home -->
+                            <div class="p-3">
+                                <h6 class="mb-0"><a th:href="@{/home}" class="text-light"><i
+                                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 bg-grey">
+                            <div class="p-5">
+                                <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text-uppercase" id="items" th:text="${items}"></h6>
+                                    <h6 th:text="${totals}"></h6>
+                                </div>
+
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text-uppercase">Shipping</h6>
+                                    <h6>Free</h6>
+                                </div>
+
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text-uppercase">Total price</h6>
+                                    <h6 id="totals" th:text="${totals}"></h6>
+                                </div>
+
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <h5 class="text-uppercase mb-3">Payment Method</h5>
+                                <div class=" pb-2">
+                                    <select class="select mb-2">
+                                        <option value="1">Account Balance</option>
+                                    </select>
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="text-uppercase">Account Saldo</h6>
+                                        <h6 id="user-saldo" th:text="${user.saldo}"></h6>
+                                    </div>
+                                    <h6 id="alert-saldo" class="text-danger d-none">balance is not enough !!</h6>
+                                    <h6 id="alert-items" class="text-danger d-none" style="font-size: smaller;">
+                                        there are no products in the basket !!</h6>
+                                </div>
+
+                                <hr class="my-2" style="border-top: red solid 2px;">
+                                <form th:action="@{/buy}" method="post">
+                                    <input type="hidden" th:field="${purchase.id}">
+                                    <button type="submit" id="buy" class="btn btn-dark btn-block btn-lg"
+                                        data-mdb-ripple-color="dark">BUY</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center" style="background-color: #191c24;">
+        <div class="container p-4 pb-0">
+            <section class="mb-4 sosmed">
+                <a href="#" class="m-1"><i class='bx bxl-github'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-discord-alt'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-steam'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-gmail'></i></a>
+            </section>
+        </div>
+        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.05);">| &COPY; 2023 Copyright:
+            Fajri Khairan Masti |
+        </div>
+    </footer>
+
+    <script>
+        let totals = document.getElementById('totals').textContent;
+        let user_saldo = document.getElementById('user-saldo').textContent;
+        let alertSaldo = document.getElementById('alert-saldo');
+        let alertItems = document.getElementById('alert-items');
+        function formatInt(rupiah) {
+            let clearFormat = rupiah.replace('Rp', '').replace(/\./g, '');
+            let intValue = parseInt(clearFormat, 10);
+            return intValue;
+        }
+
+        let items = document.getElementById('items')
+        let btn = document.getElementById('buy')
+        btn.addEventListener("click", (e) => {
+            if (items.textContent === "0 Items") {
+                e.preventDefault();
+                setInterval(() => {
+                    alertItems.classList.add('d-none');
+                }, 1500)
+                setTimeout(() => {
+                    alertItems.classList.remove('d-none');
+                }, 2000)
+            } else if (formatInt(user_saldo) < formatInt(totals)) {
+                e.preventDefault();
+                setInterval(() => {
+                    alertSaldo.classList.add('d-none');
+                }, 1500)
+                setTimeout(() => {
+                    alertSaldo.classList.remove('d-none');
+                }, 2000)
+            }
+        })
+    </script>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+</body>
+
+</html>

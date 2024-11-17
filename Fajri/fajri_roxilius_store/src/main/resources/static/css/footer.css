@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Foldit:wght@600&family=Merienda:wght@900&display=swap');
+
+.active {
+    background: -webkit-linear-gradient(#FF3300, #0062FF, #6E0DD0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+*{
+    font-family: 'Merienda', cursive;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+}
+
+a .bx:hover {
+    transform: scale(1.5);
+}
+
+a .bxl-instagram {
+    color: white;
+    background: -webkit-linear-gradient(#405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a .bxl-steam {
+    background: -webkit-linear-gradient(#171a21, #66c0f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a .bxl-github {
+    background: -webkit-linear-gradient(#0cacf4, #1d202d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a .bxl-gmail {
+    color: #DB4437;
+    -webkit-text-stroke: 0.5px white;
+}
+
+a .bxl-discord-alt {
+    color: #405DE6;
+    -webkit-text-stroke: 0.5px white;
+}
+
+.sosmed {
+    font-size: 30px;
+}

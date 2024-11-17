@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${product1.merk}"></title>
+
+    <link rel="shortcut icon" href="/fragments/rog-eye.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-body-tertiary"
+        style="background-color: #191c24 !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" th:href="@{/home}">Roxilius Store</a>
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" th:href="@{/home}"><i class="fas fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/show-card}"><i class="fas fa-basket-shopping"></i> My Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/profile}"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5 py-5">
+        <div class="kart" style="background-color: transparent !important;">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+                        <div class="preview-pic tab-content">
+                            <div class="tab-pane active" id="pic-1"><img th:src="${product1.image}" /></div>
+                        </div>
+                    </div>
+                    <div class="details col-md-6 border border-dark text-light rounded-5 p-3"
+                        style="height: min-content;">
+                        <h3 class="product-title" th:text="${product1.merk}"></h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star text-danger"></span>
+                                <span class="fa fa-star text-danger"></span>
+                                <span class="fa fa-star text-danger"></span>
+                            </div>
+                        </div>
+                        <p class="product-description" th:text="${product1.description}"></p>
+                        <h4 class="price" th:text="${product1.price}"></h4>
+                        <h5 class="sizes d-flex m-0" style="color: #2bc800;">Available :<p class="ms-1"
+                                th:text="${product1.stock}"></p>
+                        </h5>
+                        
+                        <div class="action d-flex">
+                            <form th:action="@{/add-to-card/{id}(id=${product1.id})}" class="me-2">
+
+                                <div class="d-flex mb-4" style="max-width: 300px">
+                                    <button type="button" class="btn btn-primary px-3 me-2"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+
+                                    <div class="form-outline w-25">
+                                        <input id="form1" min="1" name="qty"  type="number"
+                                            class="form-control form-control-lg text-primary fs-5 text-center" />
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary px-3 ms-2"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+
+                                <button class="add-to-cart btn btn-dark" type="submit"><i class='bx bx-cart-add fs-5'></i>add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container-fluid py-5">
+        <div class="p-5">
+            <div class="row p-2 rounded " style="background-color: #262626 !important;">
+                <div class="mb-4 d-flex p-1 justify-content-center">
+                    <form action="" class="w-50 d-flex">
+
+                    </form>
+                </div>
+
+                <div class="col-md-12 col-lg-3 mb-4" th:each="p2 : ${product2}" th:object="${p2}">
+                    <div class="card bg-dark" style="width: 15rem;">
+                        <img th:src="*{image}" class="card-img-top" alt="Laptop" style="width: 15rem;" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3 flex-column">
+                                <h5 class="mb-1"><a th:href="@{/detail-product/{merk}(merk=*{merk})}"
+                                        style="text-decoration: none;" class="text-white" th:text="*{merk}"></a></h5>
+                                <h5 class="text-white mb-0" th:text="*{price}"></h5>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <p class="mb-0" style="color: #00C853;">Available: <span class="fw-bold"
+                                        th:text="*{stock}">6</span></p>
+                                <div class="ms-auto text-danger">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center" style="background-color: #191c24;">
+        <div class="container p-4 pb-0">
+            <section class="mb-4 sosmed">
+                <a href="#" class="m-1"><i class='bx bxl-github'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-discord-alt'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-steam'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-gmail'></i></a>
+            </section>
+        </div>
+        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.05);">| &COPY; 2023 Copyright:
+            Fajri Khairan Masti |
+        </div>
+    </footer>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+    <script>
+        import { Carousel, initMDB } from "mdb-ui-kit";
+        initMDB({ Carousel });
+
+        import { Ripple, initMDB } from "mdb-ui-kit";
+        initMDB({ Ripple });
+
+        import { Input, initMDB } from "mdb-ui-kit";
+        initMDB({ Input });
+    </script>
+</body>
+
+</html>

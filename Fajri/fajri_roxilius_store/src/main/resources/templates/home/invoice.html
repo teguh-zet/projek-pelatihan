@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Invoice</title>
+    <!-- Shorcut Icon -->
+    <link rel="shortcut icon" href="/fragments/rog-eye.png">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- footer css -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/card.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-body-tertiary"
+        style="background-color: #191c24 !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" th:href="@{/home}">Roxilius Store</a>
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/home}"><i class="fas fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/show-card}"><i class="fas fa-basket-shopping"></i>
+                            My Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" th:href="@{/profile}"><i class="fas fa-user"></i>
+                            Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container mb-5 mt-3">
+                        <div class="row d-flex align-items-baseline">
+                            <div class="col-xl-9">
+                                <p style="color: #7e8d9f;font-size: 20px;">Invoice >> ID: # <strong th:text="${id}"></strong></p>
+                            </div>
+                            <div class="col-xl-3 float-end">
+                                <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+                                        class="fas fa-print text-primary"></i> Print</a>
+                                <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+                                        class="far fa-file-pdf text-danger"></i> Export</a>
+                            </div>
+                            <hr style="border-top: red solid 1px;">
+                        </div>
+
+                        <div class="container">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <img th:src="@{/fragments/profile.png}" width="100px">
+                                    <p class="pt-0">Roxilius Store</p>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-xl-8">
+                                    <ul class="list-unstyled">
+                                        <li class="text-muted">To: <span style="color:#5d9fc5 ;"
+                                                th:text="${user.name}"></span></li>
+                                        <li class="text-muted">Street, City</li>
+                                        <li class="text-muted">State, Country</li>
+                                        <li class="text-muted"><i class="fas fa-phone" th:text="${user.contact}"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-4">
+                                    <p class="text-muted">Invoice</p>
+                                    <ul class="list-unstyled">
+                                        <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                                            <span class="fw-bold">ID: # <i th:text="${id}"></i></span>
+                                        </li>
+                                        <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                                            <span class="fw-bold">Creation Date: <i th:text="${time}"></i></span>
+                                        </li>
+                                        <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                                            <span class="me-1 fw-bold">Status:</span><span
+                                                class="badge bg-success text-black fw-bold">already paid</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="row my-2 mx-1 justify-content-center">
+                                <table class="table table-striped table-borderless">
+                                    <thead style="background-color:#84B0CA ;" class="text-white">
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Qty</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr th:each="i : ${invoice}" th:object="${i}">
+                                            <td th:text="*{product.merk}"></td>
+                                            <td th:text="*{qty}"></td>
+                                            <td th:text="*{product.price}"></td>
+                                            <td th:text="*{total}">$800</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-8"></div>
+                                <div class="col-xl-3">
+                                    <ul class="list-unstyled">
+                                        <li class="text-muted ms-3">
+                                            <i class="text-black me-4">SubTotal</i><i style="font-size: small;"
+                                                th:text="${totals}"></i>
+                                        </li>
+                                        <li class="text-muted ms-3 mt-2"><i class="text-black me-4">Shipping</i>Free
+                                        </li>
+                                    </ul>
+                                    <i class="text-black float-start" style="font-size: small;">Total Amount <i
+                                            th:text="${totals}"></i></i>
+                                </div>
+                            </div>
+                            <hr style="border-top: red solid 1px;">
+                            <div class="row">
+                                <div class="col-xl-10">
+                                    <p>Thank you for your purchase</p>
+                                </div>
+                                <div class="col-xl-2">
+                                    <a th:href="@{/home}" class="btn btn-primary text-capitalize"
+                                        style="background-color:#60bdf3 ;">Back Home</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center" style="background-color: #191c24;">
+        <div class="container p-4 pb-0">
+            <section class="mb-4 sosmed">
+                <a href="#" class="m-1"><i class='bx bxl-github'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-discord-alt'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-steam'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-gmail'></i></a>
+            </section>
+        </div>
+        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.05);">| &COPY; 2023 Copyright:
+            Fajri Khairan Masti |
+        </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+    <script>
+        let currentTime = new Date();
+        let formattedTime = currentTime.toISOString().slice(0, 19).replace("T", " ");
+
+    </script>
+</body>
+
+</html>

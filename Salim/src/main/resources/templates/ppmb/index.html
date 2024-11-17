@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: ppmb}"></header>
+    <main class="container-xxl">
+        <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-dashboard-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-dashboard" type="button" role="tab" aria-controls="pills-dashboard"
+                    aria-selected="true">Dashboard</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-daftar-tpa-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-daftar-tpa" type="button" role="tab" aria-controls="pills-daftar-tpa"
+                    aria-selected="false">Daftar TPA</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-tambah-tpa-tab" data-bs-toggle="pill" data-bs-target="#pills-tambah-tpa"
+                    type="button" role="tab" aria-controls="pills-tambah-tpa" aria-selected="false">Tambah Data</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel"
+                aria-labelledby="pills-dashboard-tab" tabindex="0">
+                Ini Dashboard
+            </div>
+            <div class="tab-pane fade" id="pills-daftar-tpa" role="tabpanel" aria-labelledby="pills-daftar-tpa-tab"
+                tabindex="0">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>DAERAH TPA</th>
+                            <th>PENANGGUNG JAWAB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div th:each="p,n : ${data}">
+                            <tr th:each="m : ${p.idMember}">
+                                <td th:text="${n.count}"></td>
+                                <td th:text="${p.tpa_area}"></td>
+                                <td th:text="${m.name}"></td>
+                                <td><a th:href="@{/ppmb/delete/{id}(id=${p.id})}">Hapus</a></td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="pills-tambah-tpa" role="tabpanel" aria-labelledby="pills-tambah-tpa-tab"
+                tabindex="0">
+                <form th:action="@{/ppmb/post}" method="post" th:object="${add}">
+                    <div class="input-group mb-3">
+                        <label for="" class="input-group-text">Daerah TPA</label>
+                        <input type="text" name="" th:field="*{tpa_area}" id="">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="" class="input-group-text">PJ Daerah</label>
+                        <select class="form-select" th:field="*{idMember}">
+                            <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}"></option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-outline-info" value="Tambah">
+                </form>
+            </div>
+        </div>
+
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: ppmb}"></footer>
+</body>
+
+</html>

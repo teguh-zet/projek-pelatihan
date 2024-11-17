@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <form th:action="@{/divisi/kebersihan/save-piket}" method="post" th:object="${add}">
+            <select th:field="*{idmember}" id="">
+                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}"></option>
+            </select>
+            <select th:field="*{idroom}" id="">
+                <option th:each="m : ${room}" th:value="${m.id}" th:text="${m.room}"></option>
+            </select>
+            <input type="text" th:field="*{day}">
+            <input type="text" th:field="*{week}" id="">
+            <input type="submit" value="Simpan">
+        </form>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

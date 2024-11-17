@@ -1,0 +1,54 @@
+label {
+    opacity: 0.4;
+}
+
+#jenis {
+    opacity: 1;
+}
+
+main {
+    /* display: flex; */
+    margin: auto;
+    margin-top: 100px;
+    padding: 25px;
+    width: 800px;
+    background-color: #3498db;
+    border-radius: 10px;
+}
+
+button {
+    float: right;
+    margin-top: 50px;
+}
+
+.button-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-submit:hover {
+    background-color: #52a056;
+}
+
+.button-submit {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-submit {
+    background-color: #3498db;
+    color: white;
+}
+
+.button-submit {
+    transition: transform 0.2s;
+}
+
+.button-submit:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,19 @@
+<script>
+  console.log("tes");
+  fetch("/fav/send", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(JSON.parse(localStorage.getItem("data"))),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+        localStorage.removeItem("data");
+      console.log("Response from server:", data);
+        window.location.href = "/fav";
+    })
+    .catch((error) => {
+      console.error("Error during fetch:", error);
+    });
+</script>

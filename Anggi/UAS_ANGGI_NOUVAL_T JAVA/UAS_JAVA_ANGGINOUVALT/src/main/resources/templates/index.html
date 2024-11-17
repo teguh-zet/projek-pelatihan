@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/add-barang.css}">
+
+    <title>GivaltStore</title>
+    <!-- Favicon  -->
+    
+</head>
+
+<body>
+    <nav>
+        <div class="container-1">
+            <h1>GivaltStore</h1>
+            <div class="search">
+                <form action="#" th:action="@{/search}" method="get">
+                  <input
+                    type="text"
+                    placeholder="Cari Berdasarkan Nama barang...."
+                    name="search" style="width: 300px; height: 30px; border-radius: 10px;"
+                  />
+                  <input type="submit" value="Cari" style="width: 40px; border-radius: 20px; height: 30px;">
+                </form>
+              </div>
+            <ul class="menu">
+                <li class="nav-item"><a href="#">Home</a></li>
+
+                <li class="nav-item"><a href="/logout">Logout</a></li>
+                <li class="nav-item"><a href="/add-barang">Tambah Barang</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+       
+    </nav>
+    <!-- Gambar iklan Yang bergerak - gerak -->
+    <div class="slider">
+        <figure>
+            <div class="slide">
+                <img src="/images/Gambar Iklan 1.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="/images/Gambar Iklan 2.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="/images/Gambar Iklan 3.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="/images/Gambar Iklan 1.jpg">
+            </div>
+
+            <div class="slide">
+                <img src="/images/Gambar Iklan 2.jpg">
+            </div>
+        </figure>
+    </div>
+
+    <!-- div untuk judul yg di bawah gambar iklan -->
+    <div class="judul"><h1>Come on, buy here, it's easy and comfortable</h1></div>
+
+    <div class="product-container">
+        <div class="box" th:each=" x : ${barangs}">
+            <img class="gambar"th:src="${x.gambar}" alt="" >
+            <h4 class="title" th:text="${x.nama}"></h4>
+            <div class="harga-stock">
+                <div class="box-harga">
+                    <p style="margin-right: 20px; color: rgb(41, 37, 37);">Harga :  </p> <p style="color: rgb(56, 60, 60);">Rp. </p> <p class="price" th:text="${x.harga}"></p>
+
+                </div>
+                <div class="box-harga">
+                    <p style="margin-right: 20px;">Stoke :</p> <p style="color: rgb(29, 114, 29);">Pcs.</p>
+                    <p class="stok" style="color: rgb(29, 114, 29);" th:text="${x.stok }"></p>
+
+                </div>
+                <p class="rating"></p>
+                <button style="background-color: yellow !important; padding: 2px; border-radius: 10px !important;">
+                    <a th:href="@{/update-barang/{id}(id=${x.id})}" style="color: black !important; text-decoration: none !important;">update</a>
+                </button>
+                <button style=" background-color: red !important; padding: 2px; border-radius: 10px !important;">
+                    <a th:href="@{/delete-barang/{id}(id=${x.id})}" style="text-decoration: none !important; color: black !important;">Delete</a>
+                </button>
+      
+            </div>
+        </div>
+    </div>
+
+    <div class="semua-product"><button><a href="#">ALLPRODUCT</a></button></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="kotakbesarkali">
+            <div class="kotakkunci1">
+
+                <div class="box1">
+                    <img src="gambarall/WhatsApp_Image_2023-07-21_at_09.05.21-removebg-preview.png" alt=""
+                        title="GI-SOUND">
+                        <br><br> <br><br>
+                    <p>Best App For sound</p><br>
+                    <p>Lovers In Indonesia!</p><br>
+                    <p>sound Entertainment</p><br>
+                    <p>Platform From keren To</p><br>
+                    <p>Online sound Streaming</p><br>
+                    <p>Selections.</p>
+                    <br>
+                </div>
+                <div class="box2">
+                    <p class="ganteng"><a href="#">DIVDIK BAIK HATI</a></p>
+                    <p><a href="#">DIVDIK AKAN SUKSES</a></p>
+                    <p><a href="#">TERIMAKASI</a></p>
+                    <p><a href="#">DIVDIK NGASI 100</a></p>
+                </div>
+            </div>
+            <div class="kotakkunci2">
+
+                <div class="box3">
+                    <!-- <p class="ganteng"><a href="#">CAREERS</a></p>
+                    <p><a href="#">CONTACT US</a></p>
+                    <p><a href="#">PRIVACY POLICY</a></p>
+                    <p><a href="#">TERMS & CONDITIONS</a></p> -->
+
+                    <form action="">
+                        <label for="">
+                            Email :
+                            <br>
+                            <input type="email" placeholder="Email..." id="email"><br>
+                        </label>
+                        <br>
+                        <label for="">
+                            Message :
+                            <br>
+                            <input type="text" placeholder="Message..." id="msg"><br>
+                        </label> <br>
+
+                        <button id="btn">Send</button>
+                    </form>
+
+                </div>
+                <div class="box4">a
+                    <P class="rumah">GI-SOUND SUPPORT</P>
+                    <p>E-MAIL:HELP@GI-SOUND.ID</p>
+                    <h4>FOLLOW US</h4>
+                    <div class="gambarkecilk">
+                        <a href="#"><img src="gambarall/logo jooks.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/youtube - Copy.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/ft - Copy.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/tt - Copy.png" alt="yah"></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="palingbawah">
+            <p><br>2022 GI-SOUND - PT NUSANTARA ELANG SEJAHTERA. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

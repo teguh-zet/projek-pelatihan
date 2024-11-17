@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: divisi}"></header>
+    <main class="container-fluid">
+        <div class="container-xxl">
+            <div class="row my-4 shadow-sm">
+                <div class="col-xl-10 col-sm">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
+                            aria-labelledby="v-pills-dashboard-tab" tabindex="0">
+                            DIVISI KEBERSIHAN
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-member" role="tabpanel"
+                            aria-labelledby="v-pills-member-tab" tabindex="0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-member-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-member" type="button" role="tab" aria-controls="nav-member"
+                                        aria-selected="true">DAFTAR ANGGOTA</button>
+                                    <button class="nav-link" id="nav-add-member-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-add-member" type="button" role="tab"
+                                        aria-controls="nav-add-member" aria-selected="false">TAMBAH ANGGOTA</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-member" role="tabpanel"
+                                    aria-labelledby="nav-member-tab" tabindex="0">
+                                    <table class="table">
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>NAMA</th>
+                                            <th>JABATAN</th>
+                                        </tr>
+                                        <div th:each="m,n : ${memberDiv}">
+                                            <tr th:each="a : ${m.idMember}">
+                                                <td th:text="${n.count}"></td>
+                                                <td th:text="${a.name}"></td>
+                                                <td th:text="${m.role}"></td>
+                                                <td><a th:href="@{/divisi/kebersihan/delete/{id}(id=${m.id})}">HAPUS</a>
+                                                </td>
+                                                <td><a
+                                                        th:href="@{/divisi/kebersihan/update/{id}(id=${m.id})}">UPDATE</a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="nav-add-member" role="tabpanel"
+                                    aria-labelledby="nav-add-member-tab" tabindex="0">
+                                    <form th:action="@{/divisi/kebersihan/save}" method="post" th:object="${addMember}">
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">NAMA ANGGOTA</label>
+                                            <select th:field="*{idMember}" id="">
+                                                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">JABATAN</label>
+                                            <input type="text" th:field="*{role}" id="" required>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="Simpan">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-piket" role="tabpanel"
+                            aria-labelledby="v-pills-piket-tab" tabindex="0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-piket-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-piket" type="button" role="tab" aria-controls="nav-piket"
+                                        aria-selected="true">DAFTAR PIKET</button>
+                                    <button class="nav-link" id="nav-add-piket-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-add-piket" type="button" role="tab"
+                                        aria-controls="nav-add-piket" aria-selected="false">TAMBAH DATA</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-piket" role="tabpanel"
+                                    aria-labelledby="nav-piket-tab" tabindex="0">
+                                    <table class="table">
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>NAMA</th>
+                                            <th>RUANGAN</th>
+                                            <th>HARI</th>
+                                        </tr>
+                                        <div th:each="m,n : ${piket}">
+                                            <div th:each="a : ${m.idmember}">
+                                                <tr th:each="r : ${m.idroom}">
+                                                    <td th:text="${n.count}"></td>
+                                                    <td th:text="${a.name}"></td>
+                                                    <td th:text="${r.room}"></td>
+                                                    <td th:text="${m.day}"></td>
+                                                    <td><a
+                                                            th:href="@{/divisi/kebersihan/delete-piket/{id}(id=${m.id})}">Hapus</a>
+                                                    </td>
+                                                    <td><a
+                                                            th:href="@{/divisi/kebersihan/update-piket/{id}(id=${m.id})}">Update</a>
+                                                    </td>
+                                                </tr>
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="nav-add-piket" role="tabpanel"
+                                    aria-labelledby="nav-add-piket-tab" tabindex="0">
+                                    <form th:action="@{/divisi/kebersihan/save-piket}" method="post"
+                                        th:object="${addPiket}">
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">NAMA</label>
+                                            <select th:field="*{idmember}" id="">
+                                                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">RUANGAN</label>
+                                            <select th:field="*{idroom}" id="">
+                                                <option th:each="m : ${room}" th:value="${m.id}" th:text="${m.room}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">HARI</label>
+                                            <input type="text" th:field="*{day}">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="Simpan">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-sm">
+                    <div class="nav flex-column nav-underline me-3" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-dashboard" type="button" role="tab"
+                            aria-controls="v-pills-dashboard" aria-selected="true">DASHBOARD</button>
+                        <button class="nav-link" id="member-tab" data-bs-toggle="pill" data-bs-target="#v-pills-member"
+                            type="button" role="tab" aria-controls="v-pills-member" aria-selected="false">DAFTAR
+                            ANGGOTA</button>
+                        <button class="nav-link" id="v-pills-piket-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-piket" type="button" role="tab" aria-controls="v-pills-piket"
+                            aria-selected="false">DAFTAR PIKET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: divisi}"></footer>
+</body>
+
+</html>

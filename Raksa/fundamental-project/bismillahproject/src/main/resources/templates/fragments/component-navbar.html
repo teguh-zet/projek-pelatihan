@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" th:href="${}https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjyZXn5oqi/ZIa5EIfw/qYq1WnyhX5K67YGvY5vd699C0560bE86X6Eo7vQ=="
+        crossorigin="anonymous" />
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <nav th:fragment="navbar-item">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="true" th:href="@{/home-admin}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/add-item}">TAMBAH BARANG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-variety}">TAMBAH JENIS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{show-history}">RIWAYAT PENJUALAN</a>
+                    </li>
+                    <li class="nav-item" id="logout">
+                        <button type="button" class="btn btn-danger" style="display: flex;"><a th:href="@{logout-admin}" style="text-decoration: none;color: antiquewhite;">KELUAR</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav th:fragment="navbar-variety">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="true" th:href="@{/home-admin}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-item}">TAMBAH BARANG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/add-variety}">TAMBAH JENIS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{show-history}">RIWAYAT PENJUALAN</a>
+                    </li>
+                    <li class="nav-item" id="logout">
+                        <button type="button" class="btn btn-danger" style="display: flex;"><a th:href="@{logout-admin}" style="text-decoration: none;color: antiquewhite;">KELUAR</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav th:fragment="navbar-home">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" th:href="@{/home-admin}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-item}">TAMBAH BARANG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-variety}">TAMBAH JENIS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{show-history}">RIWAYAT PENJUALAN</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-danger"><a th:href="@{logout-admin}" style="text-decoration: none;color: antiquewhite;">KELUAR</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav th:fragment="navbar-history">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="true" th:href="@{/home-admin}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-item}">TAMBAH BARANG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/add-variety}">TAMBAH JENIS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{show-history}">RIWAYAT PENJUALAN</a>
+                    </li>
+                    <li class="nav-item" id="logout">
+                        <button type="button" class="btn btn-danger" style="display: flex;"><a th:href="@{logout-admin}" style="text-decoration: none;color: antiquewhite;">KELUAR</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
+
+</html>

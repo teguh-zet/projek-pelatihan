@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: bendahara}"></header>
+    <main class="row p-3">
+        <div class="col-xl-2 col-sm">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                    aria-selected="true">DASHBOARD</button>
+                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                    aria-selected="false">RIWAYAT TRANSAKSI</button>
+                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+                    aria-selected="false">TAMBAH DATA</button>
+                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                    aria-selected="false">CEK SALDO</button>
+            </div>
+        </div>
+        <div class="row col-xl-10 col-sm">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab" tabindex="0">
+                    <h2>LAPORAN BULAN INI</h2><br>
+                    <p>
+                        KAS TERAKHIR MASUK: Rp. <span th:text="${lastIncomeBalance}"></span>
+                    </p>
+                    <p>
+                        KAS TERAKHIR KELUAR: Rp. <span th:text="${lastExpenseBalance}"></span>
+                    </p>
+                    <p>
+                        JUMLAH SALDO TERAKHIR: Rp. <span th:text="${lastTotalBalance}"></span>
+                    </p>
+                    <p>
+                        JUMLAH SALDO Sekarang: Rp. <span th:text="${totalBalance}"></span>
+                    </p>
+                    <canvas id="bendahara" style="width:100%;max-width:700px"></canvas>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"
+                    tabindex="0">
+                    <table class="table table-primary w-45 mx-auto">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>KETERANGAN</th>
+                                <th>TANGGAL</th>
+                                <th>PENDAPATAN</th>
+                                <th>PENGELUARAN</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="d,no : ${data}">
+                                <td th:text="${no.count}"></td>
+                                <td th:text="${d.description}"></td>
+                                <td th:text="${d.date}"></td>
+                                <td th:text="${'Rp. '+d.income}"></td>
+                                <td th:text="${'Rp. '+d.expense}"></td>
+                                <td><a th:href="@{/bendahara/delete/v1/{id}(id=${d.id})}">Hapus</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"
+                    tabindex="0">
+                    <form th:action="@{/bendahara/save}" method="post">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">PEMASUKAN</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-sm" th:field="${add.income}"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">PENGELUARAN</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-sm" th:field="${add.expense}"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">TANGGAL TRANSAKSI</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control form-control-sm" th:field="${add.date}" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">KETERANGAN</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-sm" th:field="${add.description}" required>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Simpan" class="btn btn-outline-primary">
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
+                    tabindex="0">
+                    <table class="table w-45 mx-auto">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>TANGGAL</th>
+                                <th>PEMASUKAN</th>
+                                <th>PENGELUARAN</th>
+                                <th colspan="2">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="b,n : ${balance}">
+                                <td th:text="${n.count}"></td>
+                                <td th:text="${b.date}"></td>
+                                <td th:text="${'Rp. '+b.savingBalance}"></td>
+                                <td th:text="${'Rp. '+b.usedBalance}"></td>
+                                <td th:text="${'Rp. '+b.totalBalance}"></td>
+                                <td><a th:href="@{/bendahara/delete/v2/{id}(id=${b.id})}">H</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: bendahara}"></footer>
+</body>
+</html>

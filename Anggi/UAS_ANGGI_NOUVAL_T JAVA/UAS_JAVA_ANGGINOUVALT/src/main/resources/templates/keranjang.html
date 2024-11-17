@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>keranjang</title>
+    <link rel="stylesheet" th:href="@{/css/keranjang.css}">
+</head>
+
+<body>
+    <h1 style="margin-left: 550px; font-family: Arial, Helvetica, sans-serif; color: rgb(64, 117, 99);">KERANJANG</h1>
+    <div class="suu">
+
+        <table border="1" cellspacing="0">
+            <thead>
+                
+                <tr>
+                    <th class="judul">No </th>
+                    <th>Gambar</th>
+                    <th>nama barang</th>
+                    <th>tipe</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>jumlah di beli</th>
+                    <th>Total Harga</th> <!-- Tambah kolom Total Harga -->
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr th:each="x, y : ${keranjangs}">
+                    <td th:text="${y.index + 1}"></td>
+                    <td><img th:src="${x.id_Barang.gambar}" alt="" style="width: 100px !important;height: 100px; border-radius: 200px;"></td>
+                    <td th:text="${x.id_Barang.nama}"></td>
+                    <td th:text="${x.id_Barang.tipe}"></td>
+                    <td th:text="${x.id_Barang.harga}"></td>
+                    <td th:text="${x.id_Barang.stok}"></td>
+                    <!-- <td th:text="${x.id_user}"></td> -->
+                    <td th:text="${x.banyak}"></td>
+                    
+                    <td>
+                        <!-- Tambah ekspresi aritmatika untuk menampilkan total harga -->
+                        <span th:text="${x.id_Barang.harga * x.banyak}"></span>
+                    </td>
+                    
+                    
+                    <td>
+                        <button class="kuning">
+                            <a th:href="@{/update-keranjang/{id}(id=${x.id})}" >Tambah banyak</a>
+                        </button>
+                        <button class="merah">
+
+                            <a th:href="@{/delete-keranjang/{id}(id=${x.id})}" class="btn btn-warning">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="display: flex;">
+
+        <button class="kuning"  style="margin-left:  550px; margin-top: 20px; width: 80px; height: 50px;"> <a th:href="@{/keranjang-bayar}">bayar</a></button>
+        
+         <button class="merah" style="margin-left:  20px; margin-top: 20px; width: 80px;"><a th:href="@{/home-user}">kembali</a></button>
+    </div>
+</body>
+
+</html>

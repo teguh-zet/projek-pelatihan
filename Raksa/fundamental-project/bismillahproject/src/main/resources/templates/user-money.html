@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Keterangan Saldo</title>
+</head>
+
+<body>
+    <h1>Informasi Saldo ihh</h1>
+    <p th:text="'Rp. '+ ${user.money}"></p>
+
+    <form th:action="@{/save-money}" method="post">
+        <input type="number" placeholder="Masukan Jumlah Uang" name="money">
+        <input type="submit" value="Tambah Saldo">
+    </form>
+</body>
+
+</html>

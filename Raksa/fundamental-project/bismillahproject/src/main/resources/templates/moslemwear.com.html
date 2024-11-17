@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Halaman Utama</title>
+    <style>
+        img {
+            width: 80px;
+        }
+
+        .user-btn {
+            margin-top: -30px;
+        }
+
+        .admin-btn {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- NAVBAR-->
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand">
+                    <!-- Logo Image -->
+                    <img th:src="@{/moslemwear.png}" width="45" alt="tak nampak"
+                        class="d-inline-block align-middle mr-2">
+                    <!-- Logo Text -->
+                    <span class="text-uppercase font-weight-bold">Muslim Wear</span>
+                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            </div>
+        </nav>
+    </header>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/FOTO.jpg}" class="d-block w-100" alt="..." height="750px">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/FOTO.jpg}" class="d-block w-100" alt="..." height="750px">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/FOTO.jpg}" class="d-block w-100" alt="..." height="750px">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+
+        <!-- Tombol Login User -->
+        <a th:href="@{/login-user}" class="btn btn-primary btn-lg position-absolute start-50 translate-middle" role="button" style="margin-top: -300px; margin-left: -100px;">Login
+            User</a>
+        <!-- Tombol Login Admin -->
+        <a th:href="@{/login-admin}" href="/admin/login" class="btn btn-success btn-lg position-absolute start-50 translate-middle"
+            role="button" style="margin-top: -300px; margin-left: 100px;">Login Admin</a>
+    </div>
+
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Informasi Kontak</h2>
+                    <p>Alamat: Jl. Contoh No. 123, Kota Contoh</p>
+                    <p>Email: info@example.com</p>
+                    <p>Telepon: (012) 345-6789</p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Ikuti Kami</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" target="_blank">Facebook</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                        <li><a href="#" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

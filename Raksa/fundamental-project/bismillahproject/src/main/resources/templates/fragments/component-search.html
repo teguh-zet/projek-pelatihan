@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>navbar component</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8CoIgYqZuoZ1nkw28N9qfP+u2u3d0tE/W5yW4tI1r00u2tP/3Y9z0X+3z3/e75a84sS97a8YQ=="
+        crossorigin="anonymous" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+
+<body>
+    <div class="col-md-5 mx-auto" th:fragment="search-bar">
+        <div class="input-group">
+            <form th:action="@{/search}" method="get">
+                <input class="form-control border-end-0 border rounded-pill" type="search" placeholder="Cari Barang"
+                    id="example-search-input" name="search">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

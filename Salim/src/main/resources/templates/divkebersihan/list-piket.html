@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <table>
+            <tr>
+                <th>NO</th>
+                <th>NAMA</th>
+                <th>RUANGAN</th>
+                <th>HARI</th>
+                <th>MINGGU KE</th>
+            </tr>
+            <div th:each="m,n : ${piket}">
+                <div th:each="a : ${m.idmember}">
+                <tr th:each="r : ${m.idroom}">
+                    <td th:text="${n.count}"></td>
+                    <td th:text="${a.name}"></td>
+                    <td th:text="${r.room}"></td>
+                    <td th:text="${m.day}"></td>
+                    <td th:text="${m.week}"></td>
+                    <td><a th:href="@{/divisi/kebersihan/delete-piket/{id}(id=${m.id})}">Hapus</a></td>
+                    <td><a th:href="@{/divisi/kebersihan/update-piket/{id}(id=${m.id})}">Update</a></td>
+                </tr>
+            </div></div>
+        </table>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

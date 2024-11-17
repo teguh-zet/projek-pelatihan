@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: divisi}"></header>
+    <main>
+        <div class="container-xxl">
+            Ini Halaman Divisi
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: divisi}"></footer>
+</body>
+
+</html>

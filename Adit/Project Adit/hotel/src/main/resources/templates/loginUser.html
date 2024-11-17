@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" th:href="@{/css/style4.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form
+            th:action="@{/login-user}"
+            method="post"
+            th:object="${userLogin}"
+            class="sign-in-form"
+            id="input"
+          >
+            <h2 class="title">Sign in</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                th:field="*{username}"
+                required
+              />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                th:field="*{password}"
+                required
+              />
+            </div>
+            <input type="submit" class="btn solid" value="Login" />
+          </form>
+          <form
+            th:action="@{/register}"
+            method="post"
+            th:object="${user}"
+            class="sign-up-form"
+            id="input"
+          >
+            <button type="submit"><h2 class="title">Sign Up</h2></button>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="new-username"
+                name="new-username"
+                placeholder="Username"
+                th:field="*{username}"
+                required
+              />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                th:field="*{email}"
+                required
+              />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="new-password"
+                name="new-password"
+                placeholder="Password"
+                th:field="*{password}"
+                required
+              />
+            </div>
+            <input type="submit" class="btn solid" value="Sign Up" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Kamu Anak Baru?</h3>
+            <p>
+              Mari bergabung bersama kami dan nikmati mewahnya kamar dan fasilitas yang lain 
+            </p>
+            <button class="btn transparent" id="sign-up-button">Sign Up</button>
+          </div>
+          <img th:src="@{/assets/Lovepik_com-450092341-Flat illustration of secure login in editable design.png}" alt="" class="image" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Sudah Punya Akun?</h3>
+            <p>
+              Ayo segera lihat berbagai even dan diskon menarik untuk perjalan anda kunjungi berbagai tempat dann beristrahat bersama kami
+            </p>
+            <button class="btn transparent" id="sign-in-button">Sign In</button>
+          </div>
+          <img th:src="@{/assets/Mobile login-pana.png}" alt="" class="image" />
+        </div>
+      </div>
+    </div>
+    <script th:src="@{/js/apps.js}"></script>
+  </body>
+</html>

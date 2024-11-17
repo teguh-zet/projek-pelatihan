@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: admin}"></header>
+    <main class="container-sm">
+        <form th:action="@{/admin/saveupdate-member}" method="post" th:object="${update}">
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">ID</label>
+                <div class="col-sm-10">
+                    <input type="hidden" th:field="*{id}" />
+                    <input type="text" th:value="*{id}" readonly />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">NIM</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{nim}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">NAMA MAHASISWA</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{name}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">JENIS KELAMIN</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm" th:field="*{gender}">
+                        <option th:value="Laki-laki">LAKI-LAKI</option>
+                        <option th:value="Perempuan">PEREMPUAN</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">ALAMAT</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{address}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">DESKRIPSI</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{description}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">TAHUN MASUK</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{ryear}" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">ANGKATAN PUB</label>
+                <div class="col-sm-10">
+                    <select th:field="*{idgen}">
+                        <option th:each="g : ${gen}" th:value="${g.id}" th:text="${g.name}"></option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-outline-primary" value="Simpan">
+            </div>
+        </form>
+    </main>
+    <script th:replace="~{fragments/common::script}"></script>
+    <footer th:replace="~{fragments/footer_page :: admin}"></footer>
+</body>
+
+</html>

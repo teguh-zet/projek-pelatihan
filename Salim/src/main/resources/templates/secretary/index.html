@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: sekretaris}"></header>
+    <main class="container-xxl">
+        <div class="row my-4 shadow-sm">
+            <div class="col-xl-10 col-sm">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab" tabindex="0">
+                        Tidak Ada Kegiatan Untuk Hari Ini
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-agenda" role="tabpanel" aria-labelledby="agenda-tab" tabindex="0">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>NO</th>
+                                <th>ACARA</th>
+                                <th>TANGGAL</th>
+                                <th>KETERANGAN</th>
+                            </tr>
+                            <tr th:each="ag,n : ${agenda}">
+                                <td th:text="${n.count}"></td>
+                                <td th:text="${ag.agenda}"></td>
+                                <td th:text="${ag.date}"></td>
+                                <td th:text="${ag.description}"></td>
+                                <td><a class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:href="@{/sekretaris/delete/{id}(id=${ag.id})}">Hapus</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-add-agenda" role="tabpanel" aria-labelledby="v-pills-add-agenda-tab" tabindex="0">
+                        <form th:action="@{/sekretaris/save}" method="post" th:object="${add}">
+                            <div class="input-group input-group-sm mb-3">
+                                <label for="" class="input-group-text">Nama Kegiatan</label>
+                                <input type="text" class="form-control" th:field="*{agenda}" required />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <label for="" class="input-group-text">Tanggal Acara</label>
+                                <input type="date" class="form-control" th:field="*{date}" required />
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <label for="" class="input-group-text">Keterangan</label>
+                                <textarea th:field="*{description}" class="form-control"></textarea>
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <input type="submit" class="btn btn-outline-success" value="Tambah">
+                            </div>
+                        </form>
+                    </div>
+                </div>                            
+            </div>
+            <div class="col-xl-2 col-sm">
+                <div class="nav flex-column nav-underline me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dashboard" type="button" role="tab" aria-controls="v-pills-dashboard" aria-selected="true">Dashboard</button>
+                    <button class="nav-link" id="agenda-tab" data-bs-toggle="pill" data-bs-target="#v-pills-agenda" type="button" role="tab" aria-controls="v-pills-agenda" aria-selected="false">Daftar Agenda</button>
+                    <button class="nav-link" id="v-pills-add-agenda-tab" data-bs-toggle="pill" data-bs-target="#v-pills-add-agenda" type="button" role="tab" aria-controls="v-pills-add-agenda" aria-selected="false">Tambah Agenda</button>
+                </div>                               
+            </div>
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: sekretaris}"></footer>
+</body>
+
+</html>

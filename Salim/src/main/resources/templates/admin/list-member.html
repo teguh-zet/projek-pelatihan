@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{/fragments/header_page :: admin}"></header>
+    <main class="container-fluid column">
+        <form th:action="@{/admin/list-member/}">
+            Filter: <input type="text" name="name" id="name" size="50" th:value="${keyword}" required />
+            <input type="submit" value="Search">
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5">
+                    <div class="card mt-5 pt-5">
+                        <img th:src="@{./img/profile.png}"
+                            class="rounded-circle w-50 position-absolute top-0 start-50 translate-middle" alt="">
+                        <div class="card-body text-center pt-5">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover w-75 p-2">
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>NAMA MAHASISWA</th>
+                    <th>ALAMAT</th>
+                    <th>DESKRIPSI</th>
+                    <th>TAHUN MASUK</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="anggota : ${all}" th:object="${anggota}">
+                    <td th:text="*{nim}"></td>
+                    <td th:text="*{name}"></td>
+                    <td th:text="*{address}"></td>
+                    <td th:text="*{description}"></td>
+                    <td th:text="*{ryear}"></td>
+                    <td>
+                        <a
+                            th:href="@{/admin/update-member/{id}(id = *{id})}" class="btn btn-info">Update</a> | <a th:href="@{/admin/delete-member/{id}(id = *{id})}" class="btn btn-danger">Hapus</a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td th:text="${'Jumlah : '+count}"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+    </main>
+    <script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{js/bootstrap.bundle.min.js}"></script>
+    <footer th:replace="~{/fragments/footer_page :: admin}"></footer>
+</body>
+
+</html>

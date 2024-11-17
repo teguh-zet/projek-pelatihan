@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:replace="~{fragments/header_page :: admin}"></header>
+    <main class="container-fluid">
+        <form th:action="@{/admin/save-member}" method="post" th:object="${add}">
+
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">NIM</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="*{nim}" pattern="[0-9]+" required>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Nim Harus Unik Dan Tidak Boleh Sama Satu Sama Lainnya
+                    </small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">NAMA MAHASISWA</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="*{name}" pattern="[a-zA-Z\s\']+" required>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <label for="" class="col-sm-2 col-form-label">JENIS KELAMIN</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm" th:field="*{gender}">
+                        <option th:value="Laki-laki">LAKI-LAKI</option>
+                        <option th:value="Perempuan">PEREMPUAN</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">ALAMAT</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="*{address}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">DESKRIPSI</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="*{description}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">TAHUN MASUK</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="*{ryear}" pattern="[0-9]+" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">ANGKATAN PUB</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm" th:field="*{idgen}" id="">
+                        <option th:each="g : ${generation}" th:value="${g.id}" th:text="${g.name}"></option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Simpan" class="btn btn-outline-primary">
+            </div>
+        </form>
+    </main>
+    <script th:replace="~{fragments/common :: script}"></script>
+    <footer th:replace="~{fragments/footer_page :: admin}"></footer>
+</body>
+
+</html>

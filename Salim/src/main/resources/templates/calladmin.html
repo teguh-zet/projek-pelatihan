@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:replace="~{fragments/header_page:: common}"></header>
+    <main>
+        <section class="vh-30">
+            <div class="container py-5 h-30">
+                <div class="row d-flex align-items-center justify-content-center h-30">
+                    <div class="col-md-8 col-lg-7 col-xl-6 h-30">
+                        <img th:src="@{/img/calladmin.jpg}" class="img-fluid" alt="Phone image">
+                    </div>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 shadow-sm p-4">
+                        <div class="alert-dismissible m-2">
+                            <div class="alert alert-success" th:text="${response}"></div>
+                        </div>
+                        <h3>Message Form</h3>
+                        <form th:action="@{/calladmin}" method="post">
+                            <!-- Data input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="user-field">NAMA</label>
+                                <input type="text" id="user-field" class="form-control form-control-lg" name="name"
+                                    pattern="[a-zA-Z0-9\s]+" required />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="user-field">NOMOR HP/WA</label>
+                                <input type="text" id="user-field" class="form-control form-control-lg" name="number"
+                                    pattern="[0-9\+]+" required />
+                            </div>
+
+                            <!-- Message input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="">PESAN</label>
+                                <textarea name="message" id="" cols="10" rows="5"></textarea>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Kirim</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script th:replace="~{fragments/common :: script}"></script>
+    <footer th:replace="~{fragments/footer_page :: common}"></footer>
+</body>
+
+</html>

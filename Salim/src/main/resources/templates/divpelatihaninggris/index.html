@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: divisi}"></header>
+    <main>
+        <div class="container-xxl">
+            <div class="row my-4 shadow-sm">
+                <div class="col-xl-10 col-sm">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
+                            aria-labelledby="v-pills-dashboard-tab" tabindex="0">
+                            Divisi Pendidikan Dan Pelatihan
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-member" role="tabpanel"
+                            aria-labelledby="v-pills-member-tab" tabindex="0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-member-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-member" type="button" role="tab" aria-controls="nav-member"
+                                        aria-selected="true">DAFTAR ANGGOTA</button>
+                                    <button class="nav-link" id="nav-add-member-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-add-member" type="button" role="tab"
+                                        aria-controls="nav-add-member" aria-selected="false">TAMBAH ANGGOTA</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab" tabindex="0">
+                                    <table class="table">
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>NAMA</th>
+                                            <th>JABATAN</th>
+                                        </tr>
+                                        <div th:each="m,n : ${memberDiv}">
+                                            <tr th:each="a : ${m.id_member}">
+                                                <td th:text="${n.count}"></td>
+                                                <td th:text="${a.name}"></td>
+                                                <td th:text="${m.role}"></td>
+                                                <td><a
+                                                        th:href="@{/divisi/pelatihaninggris/delete/{id}(id=${m.id})}">Hapus</a>
+                                                </td>
+                                                <td><a
+                                                        th:href="@{/divisi/pelatihaninggris/update/{id}(id=${m.id})}">Update</a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="nav-add-member" role="tabpanel"
+                                    aria-labelledby="nav-add-member-tab" tabindex="0">
+                                    <form th:action="@{/divisi/pelatihaninggris/save}" method="post"
+                                        th:object="${addMember}">
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">NAMA ANGGOTA</label>
+                                            <select th:field="*{id_member}" id="">
+                                                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">JABATAN</label>
+                                            <input type="text" th:field="*{role}" id="" required>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="Simpan">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-vocab" role="tabpanel"
+                            aria-labelledby="v-pills-vocab-tab" tabindex="0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-vocab-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-vocab" type="button" role="tab" aria-controls="nav-vocab"
+                                        aria-selected="true">VOCABULLARY</button>
+                                    <button class="nav-link" id="nav-add-vocab-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-add-vocab" type="button" role="tab"
+                                        aria-controls="nav-add-vocab" aria-selected="false">TAMBAH DATA</button>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-vocab" role="tabpanel"
+                                    aria-labelledby="nav-vocab-tab" tabindex="0">
+                                    <table class="table">
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>NAMA</th>
+                                            <th>TOTAL VOCAB HAFAL</th>
+                                        </tr>
+                                        <div th:each="m,n : ${vocab}">
+                                            <tr th:each="a : ${m.id_member}">
+                                                <td th:text="${n.count}"></td>
+                                                <td th:text="${a.name}"></td>
+                                                <td th:text="${m.vocab}"></td>
+                                                <td><a
+                                                        th:href="@{/divisi/pelatihaninggris/delete-vocab/{id}(id=${m.id})}">Hapus</a>
+                                                </td>
+                                                <td><a
+                                                        th:href="@{/divisi/pelatihaninggris/update-vocab/{id}(id=${m.id})}">Update</a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="nav-add-vocab" role="tabpanel"
+                                    aria-labelledby="nav-add-vocab-tab" tabindex="0">
+                                    <form th:action="@{/divisi/pelatihaninggris/save-vocab}" method="post"
+                                        th:object="${addVocab}">
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">NAMA ANGGOTA</label>
+                                            <select th:field="*{id_member}" id="">
+                                                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">JUMLAH VOCAB</label>
+                                            <input type="text" th:field="*{vocab}" id="" required>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="Simpan">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-sm">
+                    <div class="nav flex-column nav-underline me-3" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <button class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-dashboard" type="button" role="tab"
+                            aria-controls="v-pills-dashboard" aria-selected="true">DASHBOARD</button>
+                        <button class="nav-link" id="member-tab" data-bs-toggle="pill" data-bs-target="#v-pills-member"
+                            type="button" role="tab" aria-controls="v-pills-member" aria-selected="false">DAFTAR
+                            ANGGOTA</button>
+                        <button class="nav-link" id="v-pills-vocab-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-vocab" type="button" role="tab" aria-controls="v-pills-vocab"
+                            aria-selected="false">VOCABULLARY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: divisi}"></footer>
+</body>
+
+</html>

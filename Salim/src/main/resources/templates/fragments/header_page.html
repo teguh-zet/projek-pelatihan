@@ -1,0 +1,393 @@
+<header th:fragment="admin">
+    <nav class="navbar navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/">PUB System</a>
+      <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin/">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bendahara/">Bendahara</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sekretaris/">Sekretaris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ppmb/">PPMB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Daftar Divisi
+              </a>
+              <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+                <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+                <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</nav>
+</header>
+
+<header th:fragment="bendahara">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">PUB System</a>
+      <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/bendahara/">Bendahara</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sekretaris/">Sekretaris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ppmb/">PPMB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Daftar Divisi
+              </a>
+              <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+                <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+                <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<header th:fragment="sekretaris">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">PUB System</a>
+      <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bendahara/">Bendahara</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sekretaris/">Sekretaris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ppmb/">PPMB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Daftar Divisi
+              </a>
+              <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+                <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+                <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<header th:fragment="ppmb">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">PUB System</a>
+      <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bendahara/">Bendahara</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sekretaris/">Sekretaris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/ppmb/">PPMB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Daftar Divisi
+              </a>
+              <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+                <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+                <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<header th:fragment="divisi">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">PUB System</a>
+      <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+          <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bendahara/">Bendahara</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sekretaris/">Sekretaris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ppmb/">PPMB</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Daftar Divisi
+              </a>
+              <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+                <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+                <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+                <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<header th:fragment="user">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">PUB System</a>
+    <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<header th:fragment="common">
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">PUB System</a>
+    <button class="navbar-toggler d-sm-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="site-navbar" aria-labelledby="navbar-label">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="navbar-label">Daftar Menu</h5>
+        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bendahara/">Bendahara</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sekretaris/">Sekretaris</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ppmb/">PPMB</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Daftar Divisi
+            </a>
+            <ul class="dropdown-menu dropdown-menu-light">
+              <li><a class="dropdown-item" href="/divisi/">Divisi</a></li>
+              <li><a class="dropdown-item" href="/divisi/pendidikan/">Divisi Pendidikan</a></li>
+              <li><a class="dropdown-item" href="/divisi/pelatihaninggris/">Divisi Pelatihan Bahasa Inggris</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/divisi/kerohanian/">Divisi Kerohanian</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/divisi/kesejahteraan/">Divisi Kesejahteraan</a></li>
+              <li><a class="dropdown-item" href="/divisi/kesehatan/">Divisi Kesehatan</a></li>
+              <li><a class="dropdown-item" href="/divisi/kebersihan/">Divisi Kebersihan</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/divisi/keasramaan/">Divisi Keasramaan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/">Masuk Sebagai Pengguna</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>REGISTER</title>
+    <!-- Addition Css -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Shortcut Icon -->
+    <link rel="shortcut icon" href="/fragments/rog-eye.png">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <!-- Bootstrap Css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel='stylesheet'>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5 d-flex justify-content-center">
+                    <img th:src="@{fragments/rog_logo.png}" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0 text-white">Sign Up</p>
+                    </div>
+                    <form th:action="@{/register}" method="post" class="form">
+                        <input type="hidden" th:field="${user.id}">
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Name" th:field="${user.name}" required />
+                        </div>
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Email" th:field="${user.email}" required />
+                        </div>
+                        <!-- Contact input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form3Example3 nomorHP"  class="form-control form-control-lg"
+                                placeholder="Phone Number" th:field="${user.contact}" onkeyup="validasiNomorHP(this.value)" required />
+                            <p id="pesanValidasi"></p>
+                        </div>
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Username" th:field="${user.username}" required />
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input type="password" th:field="${user.password}" id="form3Example4"
+                                class="form-control form-control-lg" placeholder="Password" required />
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0 text-white">Have account? <a th:href="@{/login}"
+                                    class="link-danger">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function validasiNomorHP(nomorHP) {
+            var regex = /^(0|\+62)8[1-9]\d{7,11}$/;
+            var pesanValidasi = document.getElementById('pesanValidasi');
+
+            if (regex.test(nomorHP)) {
+                pesanValidasi.textContent = 'Nomor HP valid';
+                pesanValidasi.style.color = 'green';
+            } else {
+                pesanValidasi.textContent = 'Nomor HP tidak valid';
+                pesanValidasi.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

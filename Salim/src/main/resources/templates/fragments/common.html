@@ -1,0 +1,34 @@
+<head th:fragment="head">
+    <title>[[#{app.name}]]</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-grid.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap-reboot.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap-utilities.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="shortcut icon" th:href="@{./favicon.ico}">
+</head>
+<div th:fragment="script">
+    <!-- <script type="text/javascript" th:src="@{/javascript.php}"></script> -->
+    <!-- <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> -->
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</div>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-muted">
+        @ 2023 <span>Spring Boot</span>
+    </p>
+    <a href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image xlink:href="https://en.m.wikipedia.org/wiki/File:Spring_Boot.svg" />
+        </svg>
+        <!-- <img  src="https://en.m.wikipedia.org/wiki/File:Spring_Boot.svg" /> -->
+    </a>
+    <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+</footer>

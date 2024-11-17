@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: common}"></header>
+    <main class="container-fluid">
+        <div class="card">
+            <h1>Error</h1>
+            <p th:text="${errormessage}"></p>
+        </div>
+    </main>
+    <script th:replace="~{fragments/common :: script}"></script>
+    <footer th:replace="~{fragments/footer_page :: common}"></footer>
+</body>
+
+</html>

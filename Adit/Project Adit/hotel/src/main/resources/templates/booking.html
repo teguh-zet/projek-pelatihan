@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style3.css}"/>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+
+  .booking-form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px;
+  background: #fff;
+}
+
+div.elem-group {
+  margin: 20px 0;
+}
+
+div.elem-group.inlined {
+  width: 49%;
+  display: inline-block;
+  float: left;
+  margin-left: 1%;
+}
+
+label {
+  display: block;
+  font-family: 'Nanum Gothic';
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  width: 100%;
+  padding: 10px;
+}
+
+div.elem-group.inlined input {
+  width: 95%;
+  display: inline-block;
+}
+
+textarea {
+  height: 250px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+button {
+  height: 50px;
+  background: orange;
+  border: none;
+  color: white;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+button:hover {
+  background: #333;
+}
+div.modal{
+  --bs-modal-width: 900px;
+  justify-content: center;
+  text-align: center;
+  padding: 20;
+}
+  
+.modal-dialog{
+  width: 1200px;
+}
+.modal-body{
+  width: 1200px;
+}
+.elem-group select {
+  width: 100%;
+}
+
+    </style>
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url(pngwing.com.png)"></div>
+                <h4>Aston Hotel</h4>
+                <small>Aditia Nurohman</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                       <a th:href="@{/}">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="" >
+                            <span class="las la-user-alt"></span>
+                            <small>Customer</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="" class="active">
+                            <span class="las la-envelope"></span>
+                            <small>Mailbox</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+               
+                
+                <div class="header-menu">
+                </div>
+            </div>
+        </header>
+        <main>
+            
+            <div class="page-header">
+                <h1>Dashboard</h1>
+                <small>Home Admin</small>
+            </div>
+            
+            <div class="page-content">
+            
+
+                <div class="records table-responsive">
+
+  <div class="browse">
+    <input type="search" placeholder="Search" class="record-search">
+ </div>
+</div>
+    </div>
+<div>
+ <table width="100%">
+<thead>
+<tr>
+ <th><span class="las la-sort"></span> Nama</th>
+ <th><span class="las la-sort"></span> Room Name</th>
+ <th><span class="las la-sort"></span> Tipe Room</th>
+ <th><span class="las la-sort"></span> Check-in</th>
+ <th><span class="las la-sort"></span> Check-Out</th>
+ <th><span class="las la-sort"></span> Duration</th>
+ <th><span class="las la-sort"></span> Action</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="s : ${datanya}">
+<td th:text="${s.name}"></td>
+<h1 th:text="${s.idRoom.name}"></h1>
+<h1 th:text="${s.idRoom.typeRoom}"></h1>
+ <td th:text="${s.checkInDate}"></td>
+ <td th:text="${s.checkOutDate}"></td>
+ <td th:text="${s.duration"></td>
+ <td th:text="${s.phone}"></td>
+ <!-- <td th:text="${s.checkInDate}"></td>
+ <td th:text="${s.checkOutDate}"></td> -->
+ <td>
+ <button>Update  
+     <a class="me-3" th:href="@{/update-customer/{id}(id=${s.idBooking})}">   </a></button>
+     <!-- <a class="me-3" th:href="@{/delete-customer/{id}(id=${s.id})}"><button>Edit</button> -->
+     </a>
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

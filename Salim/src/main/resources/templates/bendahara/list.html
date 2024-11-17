@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <a href="/bendahara/add/">Tambah Data</a>
+        <div class="container d-flex justify-content-around">
+            <table class="table table-primary w-20">
+                <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>KETERANGAN</th>
+                    <th>TANGGAL</th>
+                    <th>PENDAPATAN</th>
+                    <th>PENGELUARAN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="d,no : ${data}">
+                    <td th:text="${no.count}"></td>
+                    <td th:text="${d.description}"></td>
+                    <td th:text="${d.date}"></td>
+                    <td th:text="${'Rp. '+d.income}"></td>
+                    <td th:text="${'Rp. '+d.expense}"></td>
+                    <td><a th:href="@{/bendahara/delete/v1/{id}(id=${d.id})}">H</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-primary w-20">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>TANGGAL</th>
+                    <th>PEMASUKAN</th>
+                    <th>PENGELUARAN</th>
+                    <th colspan="2">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="b : ${balance}">
+                    <td></td>
+                    <td th:text="${b.date}"></td>
+                    <td th:text="${'Rp. '+b.savingBalance}"></td>
+                    <td th:text="${'Rp. '+b.usedBalance}"></td>
+                    <td th:text="${'Rp. '+b.totalBalance}"></td>
+                    <td><a th:href="@{/bendahara/delete/v2/{id}(id=${b.id})}">H</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <a th:href="@{/auth/add}">Login Sebagai Bendahara</a>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

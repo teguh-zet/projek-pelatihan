@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link rel="icon" href="gambarall/WhatsApp_Image_2023-07-21_at_09.05.21-removebg-preview.png">
+    <link rel="stylesheet" th:href="@{/css/add-barang.css}">
+    <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel='stylesheet'>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add-barang</title>
+</head>
+
+<body>
+ 
+   
+
+    <main>
+        <div class="box-barang">
+        <div class="ki-barang">
+         <h1 style="font-family: Arial, Helvetica, sans-serif;color: bisque;">ISI DATA DIRI</h1>
+        <form th:action="@{/save-data-diri}" method="post" enctype="multipart/form-data">
+            <label for="formGroupExampleInput" class="form-label">alamat</label>
+            <input type="text" th:field="${users.alamat}" class="form-control" id="formGroupExampleInput" placeholder="Masukan alamat">
+            <label for="formGroupExampleInput" class="form-label">lahir</label>
+            <input type="date" th:field="${users.lahir}" class="form-control" id="formGroupExampleInput" placeholder="Masukan tanggal lahir">   
+            <label for="formGroupExampleInput" class="form-label">status</label>
+            <input type="text" th:field="${users.status}" class="form-control" id="formGroupExampleInput" placeholder="Masukan status">
+         
+       
+                <br><br>
+                <button type="submit" class="oto">save</button>
+                <button class="oto"><a href="/home-user" style="text-decoration: none;color: black;">back home</a></button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+    </main>
+    <footer>
+        <div class="kotakbesarkali">
+            <div class="kotakkunci1">
+
+                <div class="box1">
+                    <img src="gambarall/WhatsApp_Image_2023-07-21_at_09.05.21-removebg-preview.png" alt=""
+                        title="GI-SOUND">
+                        <br><br> <br><br>
+                    <p>Best App For sound</p>
+                    <p>Lovers In Indonesia!</p>
+                    <p>sound Entertainment</p>
+                    <p>Platform From keren To</p>
+                    <p>Online sound Streaming</p>
+                    <p>Selections.</p>
+                </div>
+                <div class="box2">
+                    <p class="ganteng"><a href="#">DIVDIK BAIK HATI</a></p>
+                    <p><a href="#">DIVDIK AKAN SUKSES</a></p>
+                    <p><a href="#">TERIMAKASI</a></p>
+                    <p><a href="#">DIVDIK NGASI 100</a></p>
+                </div>
+            </div>
+            <div class="kotakkunci2">
+
+                <div class="box3">
+                    <!-- <p class="ganteng"><a href="#">CAREERS</a></p>
+                    <p><a href="#">CONTACT US</a></p>
+                    <p><a href="#">PRIVACY POLICY</a></p>
+                    <p><a href="#">TERMS & CONDITIONS</a></p> -->
+
+                    <form action="">
+                        <label for="">
+                            Email :
+                            <br>
+                            <input type="email" placeholder="Email..." id="email"><br>
+                        </label>
+                        <br>
+                        <label for="">
+                            Message :
+                            <br>
+                            <input type="text" placeholder="Message..." id="msg"><br>
+                        </label> <br>
+
+                        <button id="btn">Send</button>
+                    </form>
+
+                </div>
+                <div class="box4">a
+                    <P class="rumah">GI-SOUND SUPPORT</P>
+                    <p>E-MAIL:HELP@GI-SOUND.ID</p>
+                    <h4>FOLLOW US</h4>
+                    <div class="gambarkecilk">
+                        <a href="#"><img src="gambarall/logo jooks.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/youtube - Copy.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/ft - Copy.png" alt="yah"></a>
+                        <a href="#"><img src="gambarall/tt - Copy.png" alt="yah"></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="palingbawah">
+            <p><br>2022 GI-SOUND - PT NUSANTARA ELANG SEJAHTERA. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

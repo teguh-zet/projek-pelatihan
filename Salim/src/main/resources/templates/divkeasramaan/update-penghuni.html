@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: divisi"></header>
+    <main class="container-fluid">
+        <form th:action="@{/divisi/keasramaan/save}" method="post" th:object="${update}">
+            <div class="input-group mb-3">
+                <label for="" class="input-group-text">NAMA ANGGOTA</label>
+                <select th:field="*{idmember}" id="">
+                    <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}"></option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <label for="" class="input-group-text">NAMA ASRAMA</label>
+                <input type="text" th:field="*{dorm}" id="" required>
+            </div>
+            <div class="input-group mb-3">
+                <label for="" class="input-group-text">KETERANGAN</label>
+                <input type="text" th:field="*{description}" id="">
+            </div>
+            <div class="input-group mb-3">
+                <input type="submit" value="Simpan">
+            </div>
+        </form>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: divisi}"></footer>
+</body>
+
+</html>

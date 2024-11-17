@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Groove |Enjoy The Music With Us</title>
+    <link rel="icon" href="/sound-waves.png" />
+    <link rel="stylesheet" th:href="@{css/Own.css}"/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <style>
+      .containerq {
+          max-width: 600px;
+          margin: 50px auto;
+          border: 1px solid #d1d1d1;
+          display: flex;
+          top: 100px;
+      }
+
+      .card {
+          border: 1px solid #d1d1d1;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-bodyq {
+          padding: 10px;
+      }
+
+      .card-titleq {
+          font-size: 1.5em;
+          margin-bottom: 5px;
+      }
+
+      .form-groupq {
+          margin-bottom: 10px;
+      }
+
+      .btn-primaryq {
+          background-color: #bf00ff;
+          color: #fff;
+          text-decoration: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          display: inline-block;
+      }
+  </style>
+  </head>
+  <body>
+    <header>
+      <div class="menu_side">
+        <h1>playlist</h1>
+        <div class="playlist">
+          <h4 class="active">
+            <span></span><i class="bi bi-music-note-beamed"></i>playlist
+          </h4>
+          <h4>
+            <!-- <span></span><a th:href="@{/fav/send}" target="_self"><i class="bi bi-music-note-beamed"></i>My favorite</a> -->
+          </h4>
+          <h4>
+            <!-- <span></span><a th:href="@{/rekomendasi}" target="_self"><i class="bi bi-music-note-beamed"></i>Recomended</a> -->
+          </h4>
+        </div>
+        <div class="menulagu">
+          <li class="itemlagu">
+            <span>01</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="1"></i>
+          </li>
+          <li class="itemlagu">
+            <span>02</span>
+            <img src="/3.jpg" alt="" />
+            <h5>
+              7 Rings <br />
+              <div class="subtittle">Ariana Grande</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="2"></i>
+          </li>
+          <li class="itemlagu">
+            <span>03</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="3"></i>
+          </li>
+          <li class="itemlagu">
+            <span>04</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="4"></i>
+          </li>
+          <li class="itemlagu">
+            <span>05</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="5"></i>
+          </li>
+          <li class="itemlagu">
+            <span>06</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="6"></i>
+          </li>
+          <li class="itemlagu">
+            <span>07</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="7"></i>
+          </li>
+          <li class="itemlagu">
+            <span>08</span>
+            <img src="/3.jpeg" alt="" />
+            <h5>
+              HAPPIER <br />
+              <div class="subtittle">Ed Sharren</div>
+            </h5>
+            <i class="bi playlistplay bi-play-circle" id="8"></i>
+          </li>
+          <li class="itemlagu">
+            <span>09</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="9"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>10</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="10"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>11</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="11"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>12</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="12"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>13</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="13"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>14</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="14"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>15</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="15"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>16</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="16"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>17</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="17"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>18</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="18"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>19</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="19"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+          <li class="itemlagu">
+            <span>20</span>
+            <div class="img_play">
+              <img src="/dualipaku.jpg" alt="" />
+              <i class="bi playlistplay bi-play-circle" id="20"></i>
+            </div>
+            <h5>
+              IDGAF <br />
+              <div class="subtittle">Dua Lipa</div>
+            </h5>
+          </li>
+        </div>
+      </div>
+      <div class="song_side">
+        <nav>
+          <ul>
+            <a th:href="@{/discover}"><li>Discover <span></span></li></a>
+            <a th:href="@{/My-Music}"><li>My Music</li></a>
+          </ul>
+          <div class="cari">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search Music..." />
+            <div class="hasil_pencarian"></div>
+          </div>
+        </nav>
+        <div class="konten">
+          <h1>WELCOME, <span th:text="${username}"></span>!</h1>
+          <p>
+            Come on, make your own music with Blackpink<br />Make your day colorful and everyone sing along with Blackpink
+          </p>
+        </div>
+        <div class="containerq">
+          <div class="cardq">
+              <div class="card-bodyq">
+                  <h5 class="card-titleq">Create Your Music Now</h5>
+                  <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+                      <div class="form-groupq">
+                          <label for="file">Choose Music:</label>
+                          <input type="file" name="file" id="file" class="form-controlq" required>
+                      </div>
+                      <button type="submit" class="btn-primaryq">Upload</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+        <div style="display: block;overflow-y: scroll;">
+          <div th:each="song : ${songs}">
+              <span th:text="${song.namefile}"></span>&nbsp;&nbsp;<a th:href="@{/deletesong/{id}(id=${song.id})}">Hapus</a><br>
+              <audio th:src="${song.songpath}" controls></audio>
+
+          </div>
+        </div>
+        <!-- <div class="populersong">
+          <div class="h4">
+            <h4>Popular Song</h4>
+            <div class="btn_s">
+              <i class="bi bi-arrow-left-circle" id="popsong_left"></i>
+              <i class="bi bi-arrow-right-circle" id="popsong_right"></i>
+            </div>
+          </div>
+          <div class="popsong">
+          </div>
+        </div>
+        <div class="popular_artist">
+          <div class="h4">
+            <h4>Popular Artist</h4>
+            <div class="btn_s">
+              <i class="bi bi-arrow-left-circle" id="popartis_left"></i>
+              <i class="bi bi-arrow-right-circle" id="popartis_right"></i>
+            </div>
+          </div>
+          <div class="item">
+            <li>
+              <a th:href="@{/lauv}"><img src="/dua.jpg" alt="" /></a>
+            </li>
+            <li>
+              <img src="/grande.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/miley.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/gomex.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/avici.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/beberexa.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/cabelo.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/faouzia.jpeg" alt="" />
+            </li>
+            <li>
+              <img src="/rihana.jpeg" alt="" />
+            </li>
+            <li>
+              <img src="/edsharren.jpg" alt="" />
+            </li>
+            <li>
+              <img src="/katypere.jpg" alt="" />
+            </li>
+          </div>
+        </div>
+      </div> -->
+      <div class="pemutar_musik">
+        <div class="putar" id="putar">
+          <div class="putar1"></div>
+          <div class="putar1"></div>
+          <div class="putar1"></div>
+        </div>
+        <img src="/sound-waves.png" id="poster_putar_musik" />
+        <h5 id="title">
+          Groove
+          <div class="subtitle">Made By Ragil</div>
+        </h5>
+        <div class="ikon">
+          <i class="bi shuffle bi-music-note-beamed">next</i>
+          <i class="bi bi-skip-start" id="back"></i>
+          <i class="bi bi-play" id="masterplay"></i>
+          <i class="bi bi-skip-end" id="next"></i>
+        </div>
+        <span id="currentstart">0:00</span>
+        <div class="bar">
+          <input type="range" id="seek" min="0" max="100" />
+          <div class="bar2" id="bar2"></div>
+          <div class="dot"></div>
+        </div>
+        <span id="currentend">0:30</span>
+        <div class="vol">
+          <i class="bi bi-volume-up" id="vol_icon"></i>
+          <input type="range" id="vol" min="0" max="100" />
+          <div class="vol_bar"></div>
+          <div class="dot" id="vol_dot"></div>
+        </div>
+      </div>
+    </header>
+    <script th:inline="javascript">
+      //<![CDATA[
+      let song = [[${music}]];
+      //   ]]>
+    </script>
+    <script th:src="@{js/app.js}"></script>
+  </body>
+</html>

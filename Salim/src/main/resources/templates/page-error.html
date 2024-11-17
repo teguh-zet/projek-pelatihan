@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <header th:replace="~{fragments/header_page :: common}"></header>
+    <main>
+        <section class="vh-30">
+            <div class="container py-5 h-30">
+                <div class="row d-flex align-items-center justify-content-center h-30">
+                    <div class="col-md-8 col-lg-7 col-xl-6 h-30">
+                        <img th:src="@{/img/forbidden-page.jpg}"
+                            class="img-fluid" alt="Phone image">
+                    </div>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 shadow-sm p-4">
+                        <h1>Akses Ditolak Ke Halaman Ini</h1>
+                        <p>
+                            Silahkan Kembali Ke Menu Sebelumnya Atau Ke Menu Utama.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: admin}"></footer>
+</body>
+
+</html>

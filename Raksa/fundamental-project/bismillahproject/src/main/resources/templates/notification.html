@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Notification</title>
+    </head>
+
+    <body>
+        <h1>Notification</h1>
+        <div th:object="${user}">
+            <p th:text="*{id}"></p>
+            <p th:text="'namanya : '+ *{username}"></p>
+        </div>
+        <div th:object="${item}">
+            <p th:text="*{name}"></p>
+            <p th:text="*{id}"></p>
+            <p th:text="*{detail}"></p>
+        </div>
+    </body>
+</html>

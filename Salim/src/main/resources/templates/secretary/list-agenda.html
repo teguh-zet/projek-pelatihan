@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <a href="/sekretaris/add/">Tambah Agenda</a>
+        <table>
+            <tr>
+                <th>NO</th>
+                <th>ACARA</th>
+                <th>TANGGAL</th>
+                <th>KETERANGAN</th>
+            </tr>
+            <tr th:each="ag,n : ${agenda}">
+                <td th:text="${n.count}"></td>
+                <td th:text="${ag.agenda}"></td>
+                <td th:text="${ag.date}"></td>
+                <td th:text="${ag.description}"></td>
+                <td><a th:href="@{/sekretaris/delete/{id}(id=${ag.id})}">Hapus</a></td>
+            </tr>
+        </table>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

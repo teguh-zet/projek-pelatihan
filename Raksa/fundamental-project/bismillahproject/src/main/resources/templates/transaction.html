@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Transaksi Barang</title>
+    <style>
+        img {
+            aspect-ratio: 3/4;
+        }
+
+        main .content{
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Selamat Transaksi</h1>
+    <main>
+        <div class="content">
+            <div class="card mb-3" style="max-width: 540px;" th:object="${item}">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img th:src="*{imagePath}" class="img-fluid rounded-start" alt="gambar tidak termuat">
+                        <p th:text="'Kategori : ' + *{variety.name}"></p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 th:text="*{name}"></h5>
+                            <p th:text="'Harga : '  + *{price}"></p>
+                            <p th:text="'Sisa Stock : ' + *{stock}"></p>
+                            <p class="card-text"><small class="text-body-secondary" th:text="'Detail : ' + *{detail}"></small></p>
+                            <form th:action="@{/final-transaction}" method="post">
+                                <input type="hidden" th:field="*{id}" name="id">
+                                <label for="buy">Beli Berapa : </label>
+                                <input type="number" name="pay">
+                                <button type="submit">Bayar Dengan Saldo</button>
+                                <p th:text="'id : ' + *{id}"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>

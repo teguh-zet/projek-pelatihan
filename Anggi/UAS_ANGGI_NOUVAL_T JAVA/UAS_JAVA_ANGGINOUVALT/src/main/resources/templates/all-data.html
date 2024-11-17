@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <link rel="stylesheet" th:href="@{/css/all-data.css}">
+
+   
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-picture"></div>
+        <h2 th:text="${users.nama}"></h2>
+      
+    </div>
+
+    <div class="profile-details">
+        <div class="detail-label">Alamat</div>
+        <div class="detail-value" th:text="${users.alamat}"></div>
+
+        <div class="detail-label">Email</div>
+        <div class="detail-value" th:text="${users.email}"></div>
+
+        <div class="detail-label">Tanggal Lahir</div>
+        <div class="detail-value" th:text="${users.lahir}"></div>
+
+        <div class="detail-label">Nomor HP</div>
+        <div class="detail-value"th:text="${users.nohp}"></div>
+
+        <div class="detail-label">Username</div>
+        <div class="detail-value" th:text="${users.username}"></div>
+
+        <div class="detail-label">Password</div>
+        <div class="detail-value">*********</div>
+
+        <div class="warning">PERINGATAN: Informasi ini bersifat rahasia.</div>
+
+        <div class="status">Status: Aktif</div>
+        <div style="display: flex;">
+            <div class="money">Uang: Rp.</div>
+            <div th:text="${users.Uang}" style="margin-left: 30px; " class="money"  min="1"></div>
+
+        </div>
+         
+    </div>
+        <div>
+            <button style="background-color: red;"><a th:href="@{/home-user}" style="color: black; font-style: none;"> kembali</a></button>
+            <button style="background-color: green;"><a th:href="@{/top-up}" style="color: black; font-style: none;">top up</a></button>
+        </div>
+</div>
+
+</body>
+</html>

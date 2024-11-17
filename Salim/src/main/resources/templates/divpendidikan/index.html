@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+</head>
+
+<body>
+    <header th:insert="~{fragments/header_page :: divisi}"></header>
+    <main class="container-xxl">
+        <div class="row my-4 shadow-sm">
+            <div class="col-xl-10 col-sm">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel"
+                        aria-labelledby="v-pills-dashboard-tab" tabindex="0">
+                        Divisi Pendidikan Dan Pelatihan
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-member" role="tabpanel" aria-labelledby="member-tab"
+                        tabindex="0">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-memberdiv-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-memberdiv" type="button" role="tab" aria-controls="pills-memberdiv"
+                                    aria-selected="true">Daftar Anggota Divisi</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-add-memberdiv-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-add-memberdiv" type="button" role="tab" aria-controls="pills-add-memberdiv"
+                                    aria-selected="true">Tambah Anggota</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-memberdiv" role="tabpanel"
+                                aria-labelledby="pills-memberdiv-tab" tabindex="0">
+                                <div class="card card-body">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>NAMA</th>
+                                            <th>JABATAN</th>
+                                        </tr>
+                                        <div th:each="m :${memberDiv}">
+                                            <tr th:each="a : ${m.idMember}">
+                                                <td th:text="${m.id}"></td>
+                                                <td th:text="${a.name}"></td>
+                                                <td th:text="${m.role}"></td>
+                                                <td><a
+                                                        th:href="@{/divisi/pendidikan/delete-m/{id}(id=${m.id})}">Hapus</a>
+                                                </td>
+                                                <td><a
+                                                        th:href="@{/divisi/pendidikan/update-m/{id}(id=${m.id})}">update</a>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-add-memberdiv" role="tabpanel"
+                                aria-labelledby="pills-add-memberdiv-tab" tabindex="0">
+                                <div class="card card-body">
+                                    <form th:action="@{/divisi/pendidikan/savem}" method="post"
+                                        th:object="${addMember}">
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">Nama Anggota</label>
+                                            <select name="" id="" th:field="*{idMember}">
+                                                <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label for="" class="input-group-text">Jabatan</label>
+                                            <input type="text" th:field="*{role}" id="">
+                                        </div>
+                                        <input type="submit" value="Simpan">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-pelatihan" role="tabpanel"
+                        aria-labelledby="v-pills-pelatihan-tab" tabindex="0">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-group-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-group" type="button" role="tab" aria-controls="pills-group"
+                                    aria-selected="true">Daftar Kelompok
+                                    Pelatihan</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-member-group-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-member-group" type="button" role="tab"
+                                    aria-controls="pills-member-group" aria-selected="false">Daftar Anggota Kelompok
+                                    Pelatihan</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-add-group-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-add-group" type="button" role="tab"
+                                    aria-controls="pills-add-group" aria-selected="false">Tambah Kelompok</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-add-group-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-add-member-group" type="button" role="tab"
+                                    aria-controls="pills-add-member-group" aria-selected="false">Tambah Anggota
+                                    Kelompok</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-group" role="tabpanel"
+                                aria-labelledby="pills-group-tab" tabindex="0">
+                                <div class="card card-body">
+                                    <table>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Grup</th>
+                                            <th>Nama Instruktur</th>
+                                        </tr>
+                                        <div th:each="g,n : ${group}">
+                                        <tr th:each="gm : ${g.id_instruktur}">
+                                            <td th:text="${n.count}"></td>
+                                            <td th:text="${g.practiceGroup}"></td>
+                                            <td th:text="${gm.name}"></td>
+                                            <td><a th:href="@{/divisi/pendidikan/delete-g/{id}(id=${g.id})}">Hapus</a>
+                                            </td>
+                                            <td><a th:href="@{/divisi/pendidikan/update-g/{id}(id=${g.id})}">update</a>
+                                            </td>
+                                        </tr>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-member-group" role="tabpanel"
+                                aria-labelledby="pills-member-group-tab" tabindex="0">
+                                <div class="card card-body">
+                                    <table>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Deskripsi</th>
+                                            <th>Kelompok</th>
+                                            <th>Nilai</th>
+                                        </tr>
+                                        <div th:each="mg : ${membergroup}">
+                                            <div th:each="mgm : ${mg.idMember}">
+                                                <tr th:each="mgg : ${mg.idGroup}">
+                                                    <td th:text="${mgm.name}"></td>
+                                                    <td th:text="${mg.description}"></td>
+                                                    <td th:text="${mg.value}"></td>
+                                                    <td th:text="${mgg.practiceGroup}"></td>
+                                                    <td><a
+                                                            th:href="@{/divisi/pendidikan/delete-mg/{id}(id=${mg.id})}">Hapus</a>
+                                                    </td>
+                                                    <td><a
+                                                            th:href="@{/divisi/pendidikan/update-mg/{id}(id=${mg.id})}">Update</a>
+                                                    </td>
+                                                </tr>
+                                            </div>
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-add-group" role="tabpanel"
+                                aria-labelledby="pills-add-group-tab" tabindex="0">
+                                <form th:action="@{/divisi/pendidikan/saveg}" method="post" th:object="${addgroup}">
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Nama Kelompok</label>
+                                        <input type="text" th:field="*{practiceGroup}" id="">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Nama Instruktur</label>
+                                        <select th:field="*{id_instruktur}" id="">
+                                            <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}"></option>
+                                        </select>
+                                    </div>
+                                    <input type="submit" value="Simpan">
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="pills-add-member-group" role="tabpanel"
+                                aria-labelledby="pills-add-member-group-tab" tabindex="0">
+                                <form th:action="@{/divisi/pendidikan/savemg}" method="post" th:object="${addmemberg}">
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Anggota</label>
+                                        <select th:field="*{idMember}" id="">
+                                            <option th:each="m : ${member}" th:value="${m.id}" th:text="${m.name}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Keterangan</label>
+                                        <input type="text" th:field="*{description}" id="">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Nilai Pelatihan</label>
+                                        <input type="number" th:field="*{value}" id="">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label for="" class="input-group-text">Kelompok</label>
+                                        <select th:field="*{idGroup}" id="">
+                                            <option th:each="g : ${group}" th:value="${g.id}"
+                                                th:text="${g.practiceGroup}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <input type="submit" value="Simpan">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-sm">
+                <div class="nav flex-column nav-underline me-3" id="v-pills-tab" role="tablist"
+                    aria-orientation="vertical">
+                    <button class="nav-link active" id="v-pills-dashboard-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-dashboard" type="button" role="tab" aria-controls="v-pills-dashboard"
+                        aria-selected="true">Dashboard</button>
+                    <button class="nav-link" id="member-tab" data-bs-toggle="pill" data-bs-target="#v-pills-member"
+                        type="button" role="tab" aria-controls="v-pills-member" aria-selected="false">Daftar
+                        Member</button>
+                    <button class="nav-link" id="v-pills-pelatihan-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-pelatihan" type="button" role="tab" aria-controls="v-pills-pelatihan"
+                        aria-selected="false">Pelatihan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: divisi}"></footer>
+</body>
+
+</html>

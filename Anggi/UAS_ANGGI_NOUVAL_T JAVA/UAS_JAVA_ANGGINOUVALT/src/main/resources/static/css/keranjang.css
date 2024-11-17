@@ -1,0 +1,57 @@
+body{
+    background-image: url(https://img.freepik.com/premium-photo/3d-rendering-shoping-cart-minimal-earth_172660-443.jpg) ;
+    background-size: cover;
+
+
+}
+
+
+th{
+    /* padding-right: 25px;
+    padding-left: 25px; */
+    padding: 10px 25px ;
+    text-align: center;
+    background-color: rgb(9, 9, 9);
+    color: white;
+    
+}
+table{
+    
+    text-align: center;
+    margin-left: 100px;
+    
+}
+
+tr:nth-child(odd){
+    background-color: lightgray;
+}
+tr:nth-child(even){
+    background-color:rgb(60, 60, 156);
+}
+.kuning{
+    background-color: yellow;
+    border-radius: 10px;
+    border-style: none;
+    
+}
+.merah{
+    border-radius: 10px;
+    border-style: none;
+    background-color: red;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.merah:hover{
+    background-color: black;
+    >a{
+        color: white;
+    }
+}
+.kuning:hover{
+    background-color: black;
+    >a{
+        color: white;
+    }
+}

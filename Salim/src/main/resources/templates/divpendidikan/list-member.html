@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+</head>
+
+<body>
+    <!-- <div th:replace="~{ fragments/common :: (${user.isAdmin}? #{header.admin} : #{header.normaluser}) }"></div> -->
+    <header th:insert="~{fragments/header_page :: (${isLogin}) ? headerlogin : headernologin}"></header>
+    <main class="container-fluid">
+        <div class="banner mx-auto">
+            anggap ini banner
+        </div>
+        <a th:href="@{/auth/add}">Daftar Sebagai Divisi Pendidikan</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NAMA</th>
+                <th>JABATAN</th>
+            </tr>
+            <div th:each="m :${member}">
+                <tr th:each="a : ${m.idMember}">
+                    <td th:text="${m.id}"></td>
+                    <td th:text="${a.name}"></td>
+                    <td th:text="${m.role}"></td>
+                    <td><a th:href="@{/divisi/pendidikan/delete-m/{id}(id=${m.id})}">Hapus</a></td>
+                    <td><a th:href="@{/divisi/pendidikan/update-m/{id}(id=${m.id})}">update</a></td>
+                </tr>
+            </div>
+        </table>
+    </main>
+    <div th:replace="~{fragments/common :: script}"></div>
+    <footer th:replace="~{fragments/footer_page :: (${isLogin}) ? footerlogin : footernologin}"></footer>
+</body>
+
+</html>

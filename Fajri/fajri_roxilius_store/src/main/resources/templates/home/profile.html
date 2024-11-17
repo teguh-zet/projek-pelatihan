@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Profile</title>
+    <!-- Shorcut Icon -->
+    <link rel="shortcut icon" href="/fragments/rog-eye.png">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- footer css -->
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/card.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-body-tertiary"
+        style="background-color: #191c24 !important;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" th:href="@{/home}">Roxilius Store</a>
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/home}"><i class="fas fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" th:href="@{/show-card}"><i class="fas fa-basket-shopping"></i>
+                            My Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" th:href="@{/profile}"><i class="fas fa-user"></i>
+                            Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+                <div class="card bg-dark mb-3" style="border-radius: .5rem;">
+                    <div class="row g-0">
+                        <div class="col-md-4 gradient-custom text-center text-white"
+                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                            <img th:src="@{./fragments/profile.png}" alt="Avatar" class="img-fluid my-5"
+                                style="width: 80px;" />
+                            <h5 th:text="${user.name}"></h5>
+                            <p th:text="${user.username}" class="text-muted"></p>
+                            <a th:href="@{/login}" class="active"><i class="fas fa-right-from-bracket"></i> Log
+                                Out</a>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body text-light p-4">
+                                <h6>Information</h6>
+                                <hr class="my-2 my-0 mt-0 mb-4" style="border-top: red solid 2px;">
+
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h6>Email</h6>
+                                        <p class="text-muted" th:text="${user.email}"></p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h6>Phone</h6>
+                                        <p class="text-muted" th:text="${user.contact}"></p>
+                                    </div>
+                                </div>
+                                <h6>Account Balance</h6>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h6>Saldo</h6>
+                                        <p class="text-muted" th:text="${user.saldo}"></p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <button class="btn btn-light btn-sm" id="tambah-saldo" data-mdb-ripple-color="dark">Purchase
+                                            Saldo</button>
+                                        <form th:action="@{/tambah-saldo}" method="post" id="form" class="d-none">
+                                            <input type="text" name="saldo" id="saldo" class="form-control mt-3"
+                                                placeholder="Saldo" required />
+                                                <button class="btn btn-light btn-sm mt-2" data-mdb-ripple-color="dark">Top-Up</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                    <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                                    <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                                    <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center" style="background-color: #191c24;">
+        <div class="container p-4 pb-0">
+            <section class="mb-4 sosmed">
+                <a href="#" class="m-1"><i class='bx bxl-github'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-discord-alt'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-steam'></i></a>
+                <a href="#" class="m-1"><i class='bx bxl-gmail'></i></a>
+            </section>
+        </div>
+        <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.05);">| &COPY; 2023 Copyright:
+            Fajri Khairan Masti |
+        </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.umd.min.js"></script>
+    <script>
+        let form = document.getElementById("form");
+        let btn_saldo = document.getElementById("tambah-saldo")
+        btn_saldo.addEventListener("click", ()=>{
+            form.classList.toggle('d-none');
+        })
+
+        var saldo = document.getElementById('saldo');
+        saldo.addEventListener('keyup', function (e) {
+            saldo.value = formatRupiah(this.value, 'Rp. ');
+        });
+
+        /* Fungsi */
+        function formatRupiah(value, prefix) {
+            var saldo_string = value.replace(/[^,\d]/g, '').toString(),
+                split = saldo_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+    </script>
+</body>
+
+</html>

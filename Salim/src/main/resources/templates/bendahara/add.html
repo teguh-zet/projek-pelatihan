@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/common :: head}">
+    <title th:text="#{app.name}"></title>
+
+</head>
+
+<body>
+    <!-- <header th:replace="~{../fragments/header_page :: headerlogin}"></header> -->
+    <main class="container-fluid">
+        <form th:action="@{/bendahara/save}" method="post">
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="${add.income}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="${add.expense}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control form-control-sm" th:field="${add.date}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" th:field="${add.description}">
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Simpan" class="btn btn-outline-primary">
+            </div>
+        </form>
+    </main>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <footer th:replace="~{fragments/common :: footer}"></footer>
+</body>
+
+</html>
