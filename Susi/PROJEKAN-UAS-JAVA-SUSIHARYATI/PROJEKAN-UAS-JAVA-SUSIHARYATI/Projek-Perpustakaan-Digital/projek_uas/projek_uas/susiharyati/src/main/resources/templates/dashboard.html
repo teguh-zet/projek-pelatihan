@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Perpustakaan Digital</title>
+  <link rel="stylesheet" th:href="@{../css/dashboard.css}">
+</head>
+
+<body>
+  <header>
+    <h1>Perpustakaan Digital</h1>
+    
+  </header>
+  <nav>
+    
+    <ul>
+      <li><a th:href="@{/home-admin}" class="active">Dashboard</a></li>
+      <li><a th:href="@{/member}">Data Anggota</a></li>
+      <li><a th:href="@{/book}">Katalog Buku</a></li>
+      <li><a th:href="@{/history-admin}">Riwayat Peminjaman</a></li>
+      <li><a th:href="@{/message-admin}">Pesan</a></li>
+    </ul>
+  </nav>
+  <div class="logout">
+    <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+  </div>
+  <div class="container">
+    <div class="library">
+      <h2>Selamat Datang di Perpustakaan Digital</h2>
+      <p>Admin Melayani dengan Senang Hati</p>
+    </div>
+    <img th:src="@{../css/dash2.jpg}" alt="Welcome">
+  </div>
+  
+</body>
+
+</html>

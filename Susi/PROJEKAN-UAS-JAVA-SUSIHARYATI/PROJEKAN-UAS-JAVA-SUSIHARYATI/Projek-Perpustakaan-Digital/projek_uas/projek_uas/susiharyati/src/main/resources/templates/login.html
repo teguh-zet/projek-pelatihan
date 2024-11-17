@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Perpustakaan Digital</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="
+        sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous
+        " referrerpolicy="no-referrer" />
+        <link rel="stylesheet" th:href="@{../css/login.css}">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2>Login Perpustakaan</h2>
+                
+                <form action="#" th:action="@{/cek-login}" method="post">
+                    <div class="form-input">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="text" name="user" th:field="*{members.username}" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="form-input">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" name="password" required th:field="*{members.password}">
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn">Masuk</button>
+                    
+                    <div class="login-register">
+                        <p><a th:href="@{add-member}" class="register-link">Don't have an account? Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

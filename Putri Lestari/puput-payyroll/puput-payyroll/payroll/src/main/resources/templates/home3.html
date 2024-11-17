@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Home Page</title>
+    </head>
+
+    <body>
+        <h2>Aplikasi Penggajian</h2>
+        <h5>Toko Yogi Banyumas</h5>
+        <hr>
+
+        <p>
+            User: <span sec:authentication="principal.username"></span>
+            <br><br>
+            Role(s): <span sec:authentication="principal.authorities"></span>
+        </p>
+
+        <div sec:authorize="hasRole('ACCOUNTANT')">
+            <!-- contoh link yang cuman akan kebaca sama accountant -->
+            <p>
+                <a th:href="@{/accountant}">Leadership Meeting</a>
+                (Only for Accountant peeps)
+            </p>
+        </div>
+
+        <div sec:authorize="hasRole('MANAGER')">
+            <!-- contoh link yang cuman akan kebaca sama manager -->
+            <p>
+                <a th:href="@{/manager}">IT Systems Meeting</a>
+                (Only for manager peeps)
+            </p>
+        </div>
+        <hr>
+
+        <a th:href="@{/employee}">Lihat Data Pegawai</a>
+        <a th:href="@{/position}">Lihat Data Jabatan</a>
+        <a th:href="@{/absentSummary}">Lihat Rekap Absensi</a>
+        <a th:href="@{/payroll}">Lihat Data Penggajian</a>
+
+        <!-- Add a logout button -->
+        <form action="#" th:action="@{/logout}" method="POST">
+            <input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Kategori</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" th:href="@{/css/add-barang.css}">
+
+</head>
+<body>
+  <section>
+    <div class="href-target" id="input-types"></div>
+    <h1>Add Kategori</h1>
+    <form th:action="@{/save-kategori}" th:object="${data}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <div class="nice-form-group">
+        <label>Product Name</label>
+        <input 
+          type="text" 
+          placeholder="Kategori Name"
+          th:field="*{name}"
+          minlength="3"
+          maxlength="40" />
+      </div>
+      <button type="submit" class="buttn">Update Kategori</button>
+    </form>
+    <a th:href="@{/show-barang}"><button class="buttn">Back to Home</button></a>
+    </div>
+  </section>
+</body>
+</html>

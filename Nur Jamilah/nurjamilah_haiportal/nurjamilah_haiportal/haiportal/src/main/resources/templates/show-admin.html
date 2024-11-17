@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>List Admin</title>
+        <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    </head>
+    <style>
+        .table{
+            margin: 20px 50px;
+
+        }
+    </style>
+
+    <body>
+        <main id="table" class="utama">
+        <section id="table--header">
+            <h4 id="hai4">Admin Data</h4>
+        </section>
+        <section >
+            <a th:href="@{/register}" class="btn btn-primary">Add admin</a>
+            <table class="table table-success table-striped">
+                <thead >
+                  <tr  >
+                    <th scope="col" class="jdl">USERNAME</th>
+                    <th scope="col" class="jdl">PASSWORD</th>
+                    <th scope="col" class="jdl">ACTION</th>
+                  </tr>
+                  <tr th:each="a : ${admins}"  >
+                    <td th:text="${a.username}" ></td>
+                    <td th:text="${a.pass}" ></td>
+                    <td >
+                      <a th:href="@{/update-admin/{id}(id=${a.id})}"
+                        ><i class="fa-solid fa-pen-to-square"></i></a>
+                      <a th:href="@{/delete-admin/{id}(id=${a.id})}"
+                        ><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          </section>
+      </main>
+    </body>
+</html>

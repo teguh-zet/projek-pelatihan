@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ars Gadget</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Ars Gadget</h1>
+    </div>
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a th:href="@{info}" id="info">About</a>
+      <a th:href="@{login}" id="login">Login</a>
+    </div>
+
+    <script th:src="@{/js/home.js}"></script>
+
+    <div class="slider">
+      <figure>
+        <div class="slide">
+          <img src="../static/slider1.jpg" th:src="@{slider1.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider2.jpg" th:src="@{slider2.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider1.jpg" th:src="@{slider1.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider3.jpg" th:src="@{slider3.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider2.jpg" th:src="@{slider2.jpg}" />
+        </div>
+      </figure>
+    </div>
+
+    <section class="hero">
+      <h1>Temukan Smartphone Terbaru Anda</h1>
+    </section>
+
+    <div class="grid-container">
+      <div th:each="p : ${product}" class="box">
+        <div class="product-details">
+          <img
+            th:src="${p.imageProduct}"
+            alt="Product Image"
+            class="product-image"
+          />
+        </div>
+        <div class="additional-info">
+          <p class="details">
+            <span class="colored bold" th:text="${p.name}" ></span>
+            <span class="colored bold" th:text="${p.merk}" ></span>
+            <span class="colored bold" th:text="${p.type}" ></span>
+            <span class="colored bold" th:text=" Stock  + ${p.stock}" ></span>
+            <span class="colored bold" th:text=" RP. + ${p.price}" ></span>
+          </p>
+          <a th:href="@{/buy}" class="buy-button">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    <section class="features">
+      <div class="feature-box">
+        <i class="fa fa-cog icon"></i>
+        <h2>Kualitas Terbaik</h2>
+        <p>
+          Dapatkan pengalaman penggunaan terbaik dengan smartphone terbaru kami
+        </p>
+      </div>
+      <div class="feature-box">
+        <i class="fa fa-star icon"></i>
+        <h2>Desain Elegan</h2>
+        <p>
+          Tampilan kekinian yang memikat dan keluarga besar anda akan senangi
+        </p>
+      </div>
+      <div class="feature-box">
+        <i class="fa fa-camera icon"></i>
+        <h2>Kamera Handal</h2>
+        <p>
+          Jadilah fotograf yang handal dengan kamera utama kami yang mempunyai
+          sensor kuat
+        </p>
+      </div>
+    </section>
+
+    <div class="tampilan">
+      <h3>Pengiriman Ekspres</h3>
+      <h3>Transaksi Aman</h3>
+      <h3>Kualitas Terjamin</h3>
+    </div>
+
+    <footer>
+      <div class="footer-1">
+        <div class="title-follow-us">
+          <h1 class="judul-footer">PhoneStore</h1>
+          <div class="follow-us">
+            <p>Ikuti Kami</p>
+            <div class="media-icons">
+              <a href="https://web.facebook.com/"
+                ><i class="fa fa-facebook"></i
+              ></a>
+              <a
+                href="https://blog.twitter.com/in_id/topics/insights/2019/10-top-brand-di-Twitter-di-Indonesia"
+                ><i class="fa fa-twitter"></i
+              ></a>
+              <a href="https://www.instagram.com/?utm_source=pwa_homescreen"
+                ><i class="fa fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/results?search_query=fashion+2023"
+                ><i class="fa fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="help-legal-info">
+          <div class="help">
+            <p><u>Bantuan</u></p>
+            <p>Bantuan & FAQ</p>
+            <p>Pengiriman</p>
+            <p>Kebijakan Pengembalian</p>
+            <p>Bayar dalam 3 Angsuran</p>
+          </div>
+          <div class="legal-info">
+            <p><u>Informasi Hukum</u></p>
+            <p>Kebijakan Privasi</p>
+            <p>Syarat & Ketentuan</p>
+            <p>Kebijakan Cookie</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-2">
+        <p>© 2023 Ars Gadget. All rights reserved.</p>
+        <p>Support: support@ArsPhone.com</p>
+        <p>
+          South Quarter, Jl. R.A. Kartini No.Kav. 8, Cilandak, Jakarta Selatan,
+          DKI Jakarta 12430
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

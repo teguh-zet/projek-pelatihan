@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Home Member</title>
+    <link rel="stylesheet" th:href="@{../css/home-member.css}"/>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Perpustakaan Digital</h1>
+        <!-- <div class="search-box">
+            <i class='bx bx-search-alt-2'></i>
+            <input type="text" placeholder="Search here...">
+        </div> -->
+    </header>
+    <nav>
+        <ul>
+          <li><a th:href="@{/member-home}" class="active">Dashboard</a></li>
+          <li><a th:href="@{/add-borrow}">Peminjaman Buku</a></li>
+          <li><a th:href="@{/add-back}">Pengembalian Buku</a></li>
+          <li><a th:href="@{/book-member}">Katalog Buku</a></li>
+          <li><a th:href="@{/add-message}">Pesan</a></li>
+        </ul>
+      </nav>
+      <div class="logout">
+        <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+      </div>
+    <div class="container">
+        <div class="library">
+            <h2>Selamat Datang di Perpustakaan Digital</h2>
+            <p>Menyediakan berbagai koleksi buku terbaik</p>
+        </div>
+        <div class="pos">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/a.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Hujan Bulan Juni</h3>
+                    <p class="book-details">Penulis : Sapardi Djoko Damono</p>
+                    <p class="book-details">Tahun Terbit : 2023</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/b.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Tonya</h3>
+                    <p class="book-details">Penulis : Salina Slyshik</p>
+                    <p class="book-details">Tahun Terbit : 2018</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/c.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Treasure</h3>
+                    <p class="book-details">Penulis : Robert Louis</p>
+                    <p class="book-details">Tahun Terbit : 2021</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/d.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Big Data</h3>
+                    <p class="book-details">Penulis : Danu Guntara</p>
+                    <p class="book-details">Tahun Terbit : 2023</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/e.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Social Psychology</h3>
+                    <p class="book-details">Penulis : P. Wesley Schultz</p>
+                    <p class="book-details">Tahun Terbit : 2019</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/f.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">The Prudence Acumen</h3>
+                    <p class="book-details">Penulis : Charlie Steward</p>
+                    <p class="book-details">Tahun Terbit : 2023</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/g.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Zakat Fitrah</h3>
+                    <p class="book-details">Penulis : Murad Naser</p>
+                    <p class="book-details">Tahun Terbit : 2025</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/h.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Hujan Bulan Juni</h3>
+                    <p class="book-details">Penulis : Sapardi Djoko Damono</p>
+                    <p class="book-details">Tahun Terbit : 2023</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="../css/i.jpg" alt="judul buku">
+                </div>
+                <div class="card-details">
+                    <h3 class="book-title">Hujan Bulan Juni</h3>
+                    <p class="book-details">Penulis : Sapardi Djoko Damono</p>
+                    <p class="book-details">Tahun Terbit : 2023</p>
+                </div>
+                <div class="button">
+                    <a th:href="@{/add-borrow}"><button class="btn">Pinjam</button></a>
+                    <button class="btn">Detail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const dataUser = new URLSearchParams(window.location.href)
+        localStorage.setItem("name", window.location.search.substring(1).split("&")[0].split("=")[1]);
+        localStorage.setItem("password", dataUser.get("password"));
+    </script>
+</body>
+
+</html>

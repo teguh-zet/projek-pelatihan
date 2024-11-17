@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>USER</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/style2.css}" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul id="menu">
+        <li id="nav-item">
+          <a th:href="@{/profil-student}" id="nav-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Profil</span>
+          </a>
+        </li>
+
+        <li id="nav-item">
+          <a th:href="@{/list-schedule2}" id="nav-item">
+            <i class="fas fa-star"></i>
+            <span>Jadwal</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/show-grade2}" id="nav-item">
+            <i class="fas fa-star"></i>
+            <span>Nilai Mahasiswa</span>
+          </a>
+        </li>
+        <li id="logout" class="nav-item">
+          <a th:href="@{/login}" id="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="main--content">
+      <div id="header--wrapper">
+        <div id="header--title">
+          <img src="logo.png" alt="" />
+          <h2 id="hai">Academic Information Portal</h2>
+        </div>
+        <div id="user--info">
+          <div id="search--box">
+            <p>Anda Login Sebagai Mahasiswa</p>
+          </div>
+          <img src="" alt="image" />
+        </div>
+      </div>
+
+      <div class="container col-md-8">
+        <div class="card">
+          <div class="card-header">Student's Profile</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-8">
+                <h4 class="card-title">
+                  <span th:text="${student.name}"></span>
+                </h4>
+                <p class="card-text">
+                  NIM : <span th:text="${student.nim}"></span>
+                </p>
+                <p class="card-text">
+                  Email : <span th:text="${student.email}"></span>
+                </p>
+                <p class="card-text">
+                  No. HP : <span th:text="${student.phone}"></span>
+                </p>
+                <p class="card-text">
+                  Jurusan : <span th:text="${student.idMajor.name}"></span>
+                </p>
+                <p class="card-text">
+                  Jenis Kelamin : <span th:text="${student.gender}"></span>
+                </p>
+                <p class="card-text">
+                  Tanggal Lahir : <span th:text="${student.birth}"></span>
+                </p>
+                <p class="card-text">
+                  Alamat : <span th:text="${student.address}"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </div>
+  </body>
+</html>

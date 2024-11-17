@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .card-car {
+            box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+            -webkit-box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+            -moz-box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+        }
+
+        .check {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light">
+
+
+    <!-- <form th:action="@{/api/transactions}" th:object="${transaction}" method="post">
+        <label for="dateOfTransaction">Date of Transaction:</label>
+        <input type="datetime-local" id="dateOfTransaction" name="dateOfTransaction" th:field="*{dateOfTransaction}" required>
+
+        <label for="user">User:</label>
+        <select id="user" name="user.id" th:field="*{user}" required>
+            <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username}"></option>
+        </select>
+
+        <label for="car">Car:</label>
+        <select id="car" name="car.id" th:field="*{car}" required>
+            <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.model}"></option>
+        </select>
+
+        <label for="priceCar">Price Car:</label>
+        <select id="priceCar" name="priceCar.id" th:field="*{priceCar}" required>
+            <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.price}"></option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form> -->
+    <div th:replace="~{fragments/component-nav-user :: navbar-user}"></div>
+    <div class="container text-center ">
+        <div class="row">
+            <div class="col">
+                <div class="card bg-dark  text-light card-car mt-4 " style="border-radius: 30px;" th:object="${cars}">
+
+                    <img th:src="*{imagePath}" class="card-img-top" alt="..." width="100" height="600px">
+                    <div class="detail row">
+                        <div class="card-body col-6 text-start">
+                            <h2 class="card-title" th:text="*{model}"></h2>
+                            <a class="btn btn-warning mt-2" th:text="'only Rp.'+*{price}" href=""></a><br>
+                            <a class="btn btn-warning mt-2" th:text="'color : '+*{color}" href=""></a><br>
+                            <a class="btn btn-warning mt-2 " th:text="'Kilometer : '+*{km}" href=""></a><br>
+                            <!-- <a class="btn btn-warning " th:text="*{year}" href=""></a><br> -->
+                            <!-- <p class="card-text" th:text="'price       : '+*{price}"></p>
+                            <p class="card-text" th:text="'color       : '+*{color}"></p>
+                            <p class="card-text" th:text="'Kilometer   : '+*{km}"></p> -->
+                        </div>
+                        <div class="card-body col-6 right-card mt-5 align-items-center">
+
+                            <a class="btn btn-warning " th:text="*{year}" href=""></a><br>
+                            <a class="btn btn-warning mt-2" th:text="*{statue}" href=""></a><br>
+                            <a class=" mt-2" href="https://wa.me/082364701082">More details</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col form-transaction text-center bg-dark text-light">
+                    <h2>Form Transaction</h2>
+
+                    <form action="" th:action="@{/save-form-pembelian}" method="post" th:object="${transactions}"
+                        enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <!-- <input type="hidden" th:field="*{car.id}" name="selectedCarId"> -->
+                                <label for="model">Your Full Name</label>
+                                <input type="text" th:field="*{fullName}" class="form-control" id="fullName"
+                                    name="fullName" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="addres" class="form-label">Your Addres</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">jl.</span>
+                                    <input type="text" class="form-control" name="addres" th:field="*{addres}"
+                                        id="addres" aria-label="Addrres">
+                                </div>
+                                <div class="form-group">
+                                    <label for="model">Date time</label>
+                                    <input type="datetime-local" th:field="*{dateOfTransaction}" class="form-control"
+                                        id="dateOfTransaction" name="dateOfTransaction" required />
+                                </div>
+                                <div class="form-check check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                      Teaz Auto Cash Method
+                                    </label>
+                                  </div>
+                                  
+                                <button type="submit" class="btn btn-primary mt-4">Pay Now</button>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div th:replace="~{fragments/footer :: footer}"></div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

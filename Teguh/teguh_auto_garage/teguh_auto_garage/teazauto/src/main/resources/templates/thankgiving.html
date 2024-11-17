@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Halaman Terima Kasih</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa;
+            }
+            header {
+                background-color: #007bff;
+                color: #fff;
+                padding: 20px 0;
+            }
+            section {
+                margin: 40px 0;
+            }
+            footer {
+                background-color: #343a40;
+                color: #fff;
+                padding: 20px 0;
+                
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body class="bg-dark">
+        <header class="text-center">
+            <h1>Thank You for Your Payment!</h1>
+        </header>
+    
+        <div class="container">
+            <section>
+                <div class="alert alert-success" role="alert">
+                    <p class="lead">We would like to express our sincere gratitude for the payment you have made. Your contribution means a lot to us, and we truly appreciate your support and trust.</p>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Proof of Payment</h2>
+                        <ul class="list-group list-group-flush">
+                            <!-- <li class="list-group-item"><strong>buyer's full name:</strong> [ <span th:text="${transactions.fullName}"></span> ]</li> -->
+                            <li class="list-group-item"><strong>Payment Date:</strong> [ <span th:text="${transactions.dateOfTransaction}"></span> ]</li>
+                            <li class="list-group-item"><strong>Buyer's Addres :</strong> [Jl. <span th:text="${transactions.addres}"></span> ]</li>
+                            <li class="list-group-item"><strong>Payment Amount:</strong> [Rp. <span th:text="${transactions.price}"></span> ]</li>
+                            <!-- <li class="list-group-item"><strong>Payment :</strong> [ <span th:text="${transactions}">Amount</span> ]</li> -->
+                            <li class="list-group-item"><strong>Payment Method:</strong> [ Teaz Auto Cash ]</li>    
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+            <section>
+                <div class="card">
+                    <div class="card-body">
+                        <a th:href="@{/login-users}" class="btn btn-warning">Close</a>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Contact Us</h2>
+                        <p>If you have any further questions, suggestions, or need additional assistance, please do not hesitate to contact us. We are happy to assist you.</p>
+            
+                        <p><strong>Alamat Kantor:</strong> [jl. Dakota No.8A]</p>
+                        <p><strong>Nomor Telepon:</strong> [082364701082]</p>
+                        <p><strong>Email:</strong> [zetteaz@gmail.com]</p>
+                       
+                    </div>
+                </div>
+            </section>
+    
+           
+        </div>
+    
+        <footer class="text-center bg-secondary" >
+            <p>Yours sincerely,<br>[Teaz Auto Car]</p>
+        </footer>
+    
+        <!-- Bootstrap JS and dependencies (popper.js and jQuery) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

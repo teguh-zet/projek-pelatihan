@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: #ffefef4f;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 3px solid #cc98a0;
+            background: #e5cbcb;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .log {
+            width: 80px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #af8987;
+            margin: 0;
+        }
+
+        .left i {
+            font-size: 20px;
+            color: #523937;
+            cursor: pointer;
+        }
+
+        nav.sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            letter-spacing: 1px;
+            transition: all .5s ease;
+            overflow-y: auto;
+            background-color: #775b4b;
+            color: #c0b9b9;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            background: #9e7b6f;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            line-height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a {
+            position: relative;
+            color: #e2e2e2;
+            text-decoration: none;
+            font-size: 18px;
+            padding-left: 40px;
+            font-weight: 500;
+            display: block;
+            width: 100%;
+            border-left: 3px solid transparent;
+            transition: padding-left 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f8f9fa;
+            background: #d7c0ae;
+            border-left-color: #a3c7c7;
+            padding-left: 50px;
+        }
+
+        .text {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .text a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 15px;
+            transition: background 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .text a i {
+            margin-right: 16px;
+        }
+
+        .text a:hover {
+            background: #8d6f5b;
+            border-bottom-color: #fff;
+        }
+
+        .text a.active {
+            background: #8d6f5b;
+            border-bottom: 2px solid #fff;
+        }
+
+        .container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container-main {
+            width: 300px;
+            padding: 20px;
+            background-color: #f1d9d7e3;
+            border-radius: 10px;
+            box-shadow: -1px -1px 10px rgba(1, 1, 2, 1);
+        }
+
+        .container-main h2 {
+            text-align: center;
+            color: #523937;
+        }
+
+        .container-main label {
+            display: block;
+            margin: 10px 0;
+            color: #523937;
+        }
+
+        .container-main input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .container-main input[type="submit"] {
+            background-color: #cc98a0;
+            color: white;
+            cursor: pointer;
+        }
+
+        footer {
+            display: flex;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copy {
+            background-color: #cc98a0;
+            width: 100%;
+            height: 30px;
+            font-size: 12px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copy a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="right">
+            <img th:src="@{/1.png}" alt="" class="log">
+            <h1>SIM Rekam Medis</h1>
+        </div>
+        <div class="left">
+            <i class="bi bi-search"></i>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="bi bi-list" id="btn"></i>
+        <i class="bi bi-x" id="cancel"></i> 
+    </label>
+    <div class="container">
+        <div class="container-main">
+            <h2>Login</h2>
+
+            <form action="/login-check" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="copy">
+            <a href="">&copy; Copyright 2022 by AS</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Patient</title>
+    <link rel="stylesheet" th:href="@{/css/show.css}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous"/>
+    <style>
+        body {
+            background-color: #ffefef4f;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 3px solid #cc98a0;
+            background: #e5cbcb;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .log {
+            width: 80px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        h1 {
+            color: #af8987;
+            margin: 0;
+        }
+
+        .left i {
+            font-size: 20px;
+            color: #523937;
+            cursor: pointer;
+        }
+
+        nav.sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            letter-spacing: 1px;
+            transition: all .5s ease;
+            overflow-y: auto;
+            background-color: #775b4b;
+            color: #c0b9b9;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            background: #9e7b6f;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            line-height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a {
+            position: relative;
+            color: #e2e2e2;
+            text-decoration: none;
+            font-size: 18px;
+            padding-left: 40px;
+            font-weight: 500;
+            display: block;
+            width: 100%;
+            border-left: 3px solid transparent;
+            transition: padding-left 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f8f9fa;
+            background: #d7c0ae;
+            border-left-color: #a3c7c7;
+            padding-left: 50px;
+        }
+
+        .text {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .text a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 15px;
+            transition: background 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .text a i {
+            margin-right: 16px;
+        }
+
+        .text a:hover {
+            background: #8d6f5b;
+            border-bottom-color: #fff;
+        }
+
+        .text a.active {
+            background: #8d6f5b;
+            border-bottom: 2px solid #fff;
+        }
+
+        .container{
+          margin-top: 95px;
+          margin-bottom: 50px;
+        }
+
+        .container-main {
+          width: calc(40%);
+          margin-left: 250px;
+          padding: 20px;
+          background-color: #f1d9d7e3;
+          border-radius: 10px;
+          box-shadow: -1px -1px 10px rgba(1,1,2,1);
+        }
+
+        .card {
+          background-color: #d3c6d19e;
+          padding: 20px;
+          margin-top: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-success {
+            background-color: #b48181;
+            border: none;
+            width: 100px;
+        }
+
+        .btn-success:hover {
+            background-color: #e0a2a2;
+            color: black;
+        }
+
+        .btn-back {
+          background-color: #d19696;
+          border: none;
+          color: #fff;
+          width: 100px;
+          margin-top: 10px;
+        }
+
+        .btn-back:hover {
+            background-color:#f29d9d;
+        }
+
+        footer {
+            display: flex;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copy {
+            background-color: #cc98a0;
+            width: 100%;
+            height: 30px;
+            font-size: 12px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copy a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="right">
+        <img th:src="@{/1.png}" alt="" class="log">
+        <h1>SIM Rekam Medis</h1>
+    </div>
+    <div class="left">
+        <i class="bi bi-search"></i>
+        <i class="bi bi-person-circle"></i>
+    </div>
+</header>
+
+<input type="checkbox" id="check">
+<label for="check">
+    <span id="btn">&#9776;</span>
+    <span id="cancel">&#10006;</span>
+</label>
+
+<nav class="sidebar">
+    <div class="text">
+        <a th:href="@{/home}"><i class="bi bi-house-door"></i>Home</a>
+    </div>
+    <ul>
+        <li><a th:href="@{/show-patient}"><i class="bi-calendar-days"></i> Patient</a></li>
+        <li><a th:href="@{/show-doctor}"><i class="bi bi-person"></i> Doctor</a></li>
+        <li><a th:href="@{/show-polyclinic}"><i class="bi-book"></i> Polyclinic</a></li>
+        <li><a th:href="@{/show-medicine}"><i class="bi-star"></i> Medicine</a></li>
+        <li><a th:href="@{/show-mr}"><i class="bi-file-text"></i> Medical Records</a></li>
+        <li><a th:href="@{/login}">Logout</a></li>
+
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="container-main">
+        <h2>Add Patient</h2>
+        <a th:href="@{/show-patient}" class="btn btn-back">Back</a>
+        <div class="card">
+            <form th:action="@{/save-patient}" th:object="${patient}" method="post">
+                <div class="mb-4">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control col-8" placeholder="Input Patient's Name" th:field="*{name}" />
+                </div>
+                <div class="mb-4">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" id="age" placeholder="Input Patient's Age" th:field="*{age}" class="form-control col-8" />
+                </div>
+                <div class="mb-4">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" id="gender" placeholder="Input Patient's Gender" th:field="*{gender}" class="form-control col-8" />
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" id="address" placeholder="Input Patient's Address" th:field="*{address}" class="form-control col-8" />
+                </div>
+                <div class="mb-4">
+                    <label for="telp" class="form-label">Telephone</label>
+                    <input type="text" id="telp" placeholder="Input Patient's Telephone" th:field="*{telp}" class="form-control col-8" />
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="copy">
+        <a href="">&copy; Copyright 2022 by AS</a>
+    </div>
+</footer>
+
+</body>
+
+</html>

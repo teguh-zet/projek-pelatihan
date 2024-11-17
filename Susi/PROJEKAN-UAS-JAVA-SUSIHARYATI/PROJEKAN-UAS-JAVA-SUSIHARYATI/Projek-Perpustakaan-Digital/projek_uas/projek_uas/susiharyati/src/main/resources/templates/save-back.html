@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Save Pengembalian</title>
+    <link rel="stylesheet" th:href="@{../css/save.css}" />
+</head>
+
+<body>
+    <header>
+        <h1>Perpustakaan Digital</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/member-home}">Dashboard</a></li>
+            <li><a th:href="@{/add-borrow}">Peminjaman Buku</a></li>
+            <li><a th:href="@{/add-back}" class="active">Pengembalian Buku</a></li>
+            <li><a th:href="@{/book-member}">Katalog Buku</a></li>
+            <li><a th:href="@{/add-message}">Pesan</a></li>
+        </ul>
+    </nav>
+    <div class="logout">
+        <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+      </div>
+    <div class="container">
+        <h2>Pengembalian</h2>
+        <form action="#" th:action="@{/back-save}" method="post" class="form">
+            <div class="input-box">
+                <input type="hidden" th:field="${back.id}" required />
+            </div>
+
+            <div class="input-box">
+                <label>Nama Pengembali</label>
+                <select th:field="${back.idMember}" required class="option">
+                    <option th:each="member : ${member}" th:value="${member.id}" th:text="${member.memberName}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Judul Buku</label>
+                <select th:field="${back.idBook}" required class="option">
+                    <option th:each="book : ${book}" th:value="${book.id}" th:text="${book.title}"></option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Jumlah Buku Dikembalikan</label>
+                <input th:field="${back.amountBack}" required type="number" placeholder="Jumlah Kembali" />
+            </div>
+
+            <div class="input-box">
+                <label>Tanggal Pengembalian</label>
+                <input th:field="${back.dateBack}" required type="date" placeholder="Tanggal Pengembalian" />
+            </div>
+
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

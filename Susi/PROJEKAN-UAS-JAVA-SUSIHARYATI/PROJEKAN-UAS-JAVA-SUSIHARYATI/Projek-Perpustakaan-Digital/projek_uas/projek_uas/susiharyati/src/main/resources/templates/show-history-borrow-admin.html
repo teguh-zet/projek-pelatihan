@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Show History</title>
+    <link rel="stylesheet" th:href="@{../css/show-admin.css}" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Perpustakaan Digital</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a th:href="@{/home-admin}">Dashboard</a></li>
+        <li><a th:href="@{/member}">Data Anggota</a></li>
+        <li><a th:href="@{/book}">Katalog Buku</a></li>
+        <li>
+          <a th:href="@{/history-admin}" class="active">Riwayat Peminjaman</a>
+        </li>
+        <li><a th:href="@{/message-admin}">Pesan</a></li>
+      </ul>
+    </nav>
+    <div class="logout">
+      <a th:href="@{/login}"
+        ><img th:src="@{../css/door.png}" alt="library"
+      /></a>
+    </div>
+    <div class="table-show">
+      <h1>Data Peminjaman</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Judul Buku</th>
+            <th>Nama Anggota</th>
+            <th>Tanggal Peminjaman</th>
+            <th>Tanggal Pengembalian</th>
+            <th>Jumlah Buku</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="history : ${historys}">
+            <div th:each="book : ${history.idBook}">
+              <div th:each="member : ${history.idMember}">
+                <div th:each="borrow : ${history.idBorrow}">
+                  <div th:each="back : ${history.idBack}">
+                    <td th:text="${history.id}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${member.memberName}"></td>
+                    <td th:text="${borrow.dateBorrow}"></td>
+                    <td th:text="${back.dateBack}"></td>
+                    <td th:text="${borrow.amount}"></td>
+                    <td>
+                      <span class="btn">
+                        <!-- <a th:href="@{/book-update/{id}(id=${his.id})}">Edit</a> -->
+                        <a th:href="@{/history-delete/{id}(id=${history.id})}"
+                          >Hapus</a
+                        >
+                      </span>
+                    </td>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      <a th:href="@{/add-history}"> <button>Tambah Riwayat</button></a>
+    </div>
+  </body>
+</html>

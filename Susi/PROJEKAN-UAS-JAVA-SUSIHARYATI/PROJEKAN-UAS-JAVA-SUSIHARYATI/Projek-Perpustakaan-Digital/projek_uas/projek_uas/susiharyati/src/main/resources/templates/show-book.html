@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Show All Book</title>
+  <link rel="stylesheet" th:href="@{../css/show-admin.css}">
+</head>
+
+<body>
+  <header>
+    <h1>Perpustakaan Digital</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a th:href="@{/home-admin}">Dashboard</a></li>
+      <li><a th:href="@{/member}">Data Anggota</a></li>
+      <li><a th:href="@{/book}" class="active">Katalog Buku</a></li>
+      <li><a th:href="@{/history-admin}">Riwayat Peminjaman</a></li>
+      <li><a th:href="@{/message-admin}">Pesan</a></li>
+    </ul>
+  </nav>
+  <div class="logout">
+    <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+  </div>
+  <div class="table-show">
+    <h1>Data Buku</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Judul Buku</th>
+          <th>Pengarang</th>
+          <th>Tahun</th>
+          <th>Kondisi Buku</th>
+          <th>Jumlah Buku</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="buk : ${books}">
+          <td th:text="${buk.id}"></td>
+          <td th:text="${buk.title}"></td>
+          <td th:text="${buk.author}"></td>
+          <td th:text="${buk.year}"></td>
+          <td th:text="${buk.statusBook}"></td>
+          <td th:text="${buk.amountBook}"></td>
+
+          <td>
+            <span class="btn">
+              <a th:href="@{/book-update/{id}(id=${buk.id})}">Edit</a>
+              <a th:href="@{/book-delete/{id}(id=${buk.id})}">Hapus</a>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/add-book}">
+      <button>Tambah Buku</button></a>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Show All Member in Library</title>
+    <link rel="stylesheet" href="../css/show-admin.css">
+</head>
+
+<body>
+    <header>
+        <h1>Perpustakaan Digital</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/home-admin}">Dashboard</a></li>
+            <li><a th:href="@{/member}" class="active">Data Anggota</a></li>
+            <li><a th:href="@{/book}">Katalog Buku</a></li>
+            <li><a th:href="@{/history-admin}">Riwayat Peminjaman</a></li>
+            <li><a th:href="@{/message-admin}">Pesan</a></li>
+        </ul>
+    </nav>
+    <div class="logout">
+        <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+      </div>
+    <div class="table-show">
+        <h1>Show Data Member</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Anggota</th>
+                    <th>NIM</th>
+                    <th>Alamat</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each=" memb: ${members}">
+                    <td th:text="${memb.id}"></td>
+                    <td th:text="${memb.memberName}"></td>
+                    <td th:text="${memb.nim}"></td>
+                    <td th:text="${memb.address}"></td>
+
+                    <td>
+                        <span class="btn">
+                            <a th:href="@{/member-update/{id}(id=${memb.id})}">Edit</a>
+                            <a th:href="@{/member-delete/{id}(id=${memb.id})}">Hapus</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <a th:href="@{add-member}"><button>Tambah Anggota</button></a> -->
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Dashboard Admin</title>
+    <style>
+      body {
+        background-color: #e3f4f4;
+        margin: 0%;
+        overflow: hidden;
+      }
+      .header {
+        background-color: white;
+        margin: 0%;
+        padding: auto;
+        display: flex;
+        align-items: center;
+        text-align: end;
+      }
+      .header h1 {
+        color: #8bbccc;
+        margin: 15px;
+        padding: auto;
+      }
+
+      .navbar {
+        background: linear-gradient(to bottom right, #164863, #8bbccc, #427d9d);
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar a {
+        color: white;
+        font-size: bold;
+        text-decoration: none;
+        padding: 7px 15px;
+        margin: 0 5px;
+      }
+
+      .navbar a:hover {
+        background: linear-gradient(to bottom right, #c1d8c3, #78d6c6, #9db2bf);
+        color: whitesmoke;
+      }
+
+      .slider {
+        overflow: hidden;
+        height: 100%;
+        margin-bottom: 20px;
+      }
+
+      .slider figure div {
+        width: 20%;
+        height: 100%;
+        float: left;
+      }
+
+      .slider figure img {
+        width: 100%;
+        height: auto;
+        float: left;
+      }
+
+      .slider figure {
+        position: relative;
+        width: 500%;
+        margin: 0;
+        left: 0;
+        animation: 20s slidy infinite;
+      }
+
+      @keyframes slidy {
+        0% {
+          left: 0%;
+        }
+
+        25% {
+          left: -100%;
+        }
+
+        50% {
+          left: -200%;
+        }
+
+        75% {
+          left: -300%;
+        }
+
+        100% {
+          left: -400%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Ars Gadget</h1>
+    </div>
+    <div class="navbar">
+      <a th:href="@{list-product}">Data Product</a>
+      <a th:href="@{list-customer}">Data Customer</a>
+      <a th:href="@{list-admin}">Data Admin</a>
+      <a th:href="@{list-transaction}">Data Transaction</a>
+      <a th:href="@{list-payment}">Data Payments</a>
+      <a th:href="@{home}">Back to home</a>
+    </div>
+
+    <div class="slider">
+      <figure>
+        <div class="slide">
+          <img src="../static/slider1.jpg" th:src="@{slider1.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider2.jpg" th:src="@{slider2.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider1.jpg" th:src="@{slider1.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider3.jpg" th:src="@{slider3.jpg}" />
+        </div>
+
+        <div class="slide">
+          <img src="../static/slider2.jpg" th:src="@{slider2.jpg}" />
+        </div>
+      </figure>
+    </div>
+  </body>
+</html>

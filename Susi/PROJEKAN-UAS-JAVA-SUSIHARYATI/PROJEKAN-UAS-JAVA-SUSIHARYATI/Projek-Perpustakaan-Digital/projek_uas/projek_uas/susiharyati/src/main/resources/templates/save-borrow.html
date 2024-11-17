@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Save Borrow</title>
+        <link rel="stylesheet" th:href="@{../css/save.css}">
+    </head>
+
+    <body>
+            <header>
+                <h1>Perpustakaan Digital</h1>
+            </header>
+            <nav>
+                <ul>
+                  <li><a th:href="@{/member-home}">Dashboard</a></li>
+                  <li><a th:href="@{/add-borrow}" class="active">Peminjaman Buku</a></li>
+                  <li><a th:href="@{/add-back}">Pengembalian Buku</a></li>
+                  <li><a th:href="@{/book-member}">Katalog Buku</a></li>
+                  <li><a th:href="@{/add-message}">Pesan</a></li>
+                </ul>
+              </nav>
+              <div class="logout">
+                <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+              </div>
+            <div class="container">
+                <div class="message" th:text="${message}"></div>
+                <h2>Peminjaman</h2>
+                <form action="#" th:action="@{/borrow-save}" method="post" class="form">
+                    <div class="input-box">
+                        <!-- <label>Full Name</label> -->
+                        <input type="hidden" th:field="${borrow.id}"/>
+                    </div>
+        
+                    <div class="input-box">
+                        <label>Nama Peminjam</label>
+                        <select th:field="${borrow.idMember}" required class="option">
+                            <option 
+                            th:each="mem : ${member}"
+                            th:value="${mem.id}"
+                            th:text="${mem.memberName}"></option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Judul Buku</label>
+                        <select th:field="${borrow.idBook}" required class="option">
+                            <option 
+                            th:each="book : ${book}"
+                            th:value="${book.id}"
+                            th:text="${book.title}"></option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Status Buku</label>
+                        <select th:field="${borrow.idBook}" required class="option">
+                            <option 
+                            th:each="book : ${book}"
+                            th:value="${book.id}"
+                            th:text="${book.statusBook}"></option>
+                        </select>
+                    </div>
+        
+                    <div class="input-box">
+                        <label>Jumlah Buku</label>
+                        <input type="number" th:field="${borrow.amount}" required placeholder="Jumlah Buku">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Tanggal Pengembalian</label>
+                        <input type="date" th:field="${borrow.dateBorrow}" required placeholder="Tanggal Peminjaman">
+                    </div>
+        
+                    <button>Submit</button>
+                </form>
+            </div>
+
+
+    </body>
+</html>

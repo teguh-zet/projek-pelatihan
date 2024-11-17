@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #333;
+  }
+
+  header {
+    background: linear-gradient(to bottom right, #164863, #8bbccc, #427d9d);
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  header h1 {
+    font-family: "Caveat", cursive;
+    font-size: 36px;
+    margin-right: 20px;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+  }
+
+  section {
+    padding: 32px;
+    margin-top: 50px;
+  }
+
+  .container-2 {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .container-3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  .container-3 img {
+    width: 380px;
+    height: auto;
+    margin-top: -40px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .info-1 {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(to bottom left, #427d9d, #164863);
+    color: white;
+    border-radius: 10px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-1 h1 {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    header {
+      padding: 16px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-right: 10px;
+    }
+
+    .container-2 {
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .info-1 {
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    .container-3 {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .container-3 img {
+      max-width: calc(50% - 10px);
+      margin-top: 10px;
+    }
+  }
+  footer {
+    background: linear-gradient(to bottom right, #164863, #8bbccc, #427d9d);
+    color: whitesmoke;
+    padding: 16px;
+  }
+  footer p {
+    padding: 0 16px;
+  }
+  footer::after {
+    content: "";
+    display: block;
+    border-top: 1px solid #ddd;
+    margin-top: 16px;
+  }
+  .footer-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 64px;
+    margin-inline: 32px;
+  }
+
+  .title-follow-us h1 {
+    font-family: "Caveat", cursive;
+    font-size: 36px;
+  }
+
+  .help-legal-info {
+    display: flex;
+    gap: 40px;
+  }
+
+  .help-legal-info * {
+    line-height: 24px;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .follow-us {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: "Barlow Condensed", sans-serif;
+  }
+
+  .media-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .fa {
+    padding: 8px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: #3b5998;
+    width: auto;
+    height: auto;
+    color: white;
+  }
+
+  .fa-twitter {
+    background: #55acee;
+    height: auto;
+    width: auto;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: rgb(212, 86, 128);
+    width: auto;
+    height: auto;
+    color: white;
+  }
+
+  .fa-youtube {
+    background: red;
+    height: auto;
+    width: auto;
+    color: white;
+  }
+
+  .footer-2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .footer-2 p {
+    font-family: "Barlow Condensed", sans-serif;
+    margin-top: 6px;
+  }
+  .follow-us {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .follow-us .icon {
+    font-size: 24px;
+    color: #fff;
+    margin-right: 10px;
+  }

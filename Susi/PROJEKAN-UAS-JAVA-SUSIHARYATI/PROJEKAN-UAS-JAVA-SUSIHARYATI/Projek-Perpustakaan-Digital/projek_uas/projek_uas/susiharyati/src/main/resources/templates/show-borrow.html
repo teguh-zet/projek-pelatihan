@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Show All Borrow</title>
+  <link rel="stylesheet" th:href="@{../css/show.css}">
+</head>
+
+<body>
+
+  <header>
+    <h1>Perpustakaan Digital</h1>
+  </header>
+    <nav>
+      <ul>
+        <li><a th:href="@{/member-home}">Dashboard</a></li>
+        <li><a th:href="@{/add-borrow}" class="active">Peminjaman Buku</a></li>
+        <li><a th:href="@{/add-back}">Pengembalian Buku</a></li>
+        <li><a th:href="@{/book-member}">Katalog Buku</a></li>
+        <li><a th:href="@{/add-message}">Pesan</a></li>
+      </ul>
+    </nav>
+    <div class="logout">
+      <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+    </div>
+
+  <div class="table-show">
+    <h1>Data Peminjaman</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nama Anggota</th>
+          <th>Judul Buku</th>
+          <th>Kondisi Buku Saat Dipinjam</th>
+          <th>Jumlah Buku</th>
+          <th>Tanggal Peminjaman</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each=" borrow: ${borrows}">
+          <div th:each="a : ${borrow.idMember}">
+            <div th:each="b : ${borrow.idBook}">
+            <td th:text="${borrow.id}"></td>
+            <td th:text="${a.memberName}"></td>
+            <td th:text="${b.title}"></td>
+            <td th:text="${b.statusBook}"></td>
+            <td th:text="${borrow.amount}"></td>
+            <td th:text="${borrow.dateBorrow}"></td>
+            <td>
+              <span class="btn">
+                <a th:href="@{/borrow-update/{id}(id=${borrow.id})}">Edit</a>
+                <!-- <a th:href="@{/borrow-delete/{id}(id=${borrow.id})}">Hapus</a> -->
+              </span>
+            </td>
+          </div>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/add-borrow}">
+      <button>Tambah Peminjaman</button>
+    </a>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Input Grade</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />    
+  <link rel="stylesheet" th:href="@{/style2.css}" />
+
+</head>
+<body>
+  <div id="sidebar">
+    <ul id="menu">
+        <li id="nav-item">
+            <a th:href="@{/profil-lectur}" id="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Profil</span>
+            </a>
+        </li>
+        <li id="nav-item">
+            <a th:href="@{/list-schedule3}" id="nav-item">
+                <i class="fas fa-star"></i>
+                <span>Jadwal</span>
+            </a>
+        </li>
+        <li id="nav-item">
+            <a th:href="@{/input-grade}" id="nav-item">
+                <i class="fas fa-star"></i>
+                <span>Input Nilai</span>
+            </a>
+        </li>
+        <li id="logout" class="nav-item">
+            <a th:href="@{/login}" id="nav-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+  </div>
+
+      <div id="main--content" >
+        <div id="header--wrapper">
+          <div id="header--title">
+              <img src="logo.png" alt="">
+                <h2 id="hai">Academic Information Portal</h2>
+          </div>
+          <div id="user--info">
+            <div id="search--box">
+              <p>Anda Login Sebagai Dosen</p>
+            </div>
+            <img src="" alt="image" />
+          </div>
+        </div>
+        <div class="container mt-4">
+                <h2>Input Grade</h2>
+                <form th:action="@{/save-grade}" method="post" class="row g-3 needs-validation" >
+                    <div class="col-md-6">
+                        <label for="matkulId" class="form-label">Matakuliah:</label>
+                        <select id="matkulId" name="matkulId" class="form-select" required>
+                            <option th:each="matkul : ${matkuls}" th:value="${matkul.id}" th:text="${matkul.name}"></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Matakuliah harus dipilih.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="studentId" class="form-label">Mahasiswa:</label>
+                        <select id="studentId" name="studentId" class="form-select" required>
+                            <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.name}"></option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Mahasiswa harus dipilih.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="value" class="form-label">Nilai:</label>
+                        <input type="number" id="value" name="value" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Nilai harus diisi.
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+                
+                <h3 class="mt-4">Daftar Nilai:</h3>
+                <table class="table table-success table-striped">
+                    <thead class="table-primary">
+                        <tr >
+                            <th scope="col">NIM</th>
+                            <th scope="col">Mahasiswa</th>
+                            <th scope="col">Matakuliah</th>
+                            <th scope="col">Nilai</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr th:each="grade : ${grades}">
+                            <td th:text="${grade.student.nim}"></td>
+                            <td th:text="${grade.student.name}"></td>
+                            <td th:text="${grade.matkul.name}"></td>
+                            <td th:text="${grade.value}"></td>
+                            <td>
+                              <a th:href="@{/edit-grade/{id}(id=${grade.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+                              <a th:href="@{/delete-grade/{id}(id=${grade.id})}"><i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <nav th:replace="~{fragments/component2 :: navbar}"></nav>
+    <div>
+        <div style="display: flex; margin: 20px auto 0; justify-content: center; align-items: center; width: 100%;">
+            <form th:action="@{/search-kategori}" style="display: flex; width: 100%; justify-content: center; align-items: center;">
+                <input type="text" style="padding: 5px; width: 50%; border-radius: 6px; border: 2px solid rgb(119, 119, 119);" name="src" required placeholder="Search Something"/>
+                <button type="submit" class="btn btn-primary" style="margin-left: 5px; padding: 5px;">Tekan</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="container" style="margin-top: 20px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"style="color: black;">No</th>
+                        <th scope="col"style="color: black;">Nama Kategori</th>
+                        <th scope="col"style="color: black;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="dt : ${data}">
+                        <th scope="col" th:text="${dt.id}"style="color: black;"></th>
+                        <td scope="col" th:text="${dt.name}"style="color: black;"></td>
+                        <td scope="col"style="color: black;">
+                            <a th:href="@{/update-kategori/{id}(id=${dt.id})}" class="btn btn-warning">Update</a>
+                            <a th:href="@{/delete-kategori/{id}(id=${dt.id})}" class="btn btn-warning">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            <table>
+            <a th:href="@{/add-kategori}"><button class="btn btn-warning">Add Kategori</button></a>
+        </div>
+    </div>
+</body>
+</html>

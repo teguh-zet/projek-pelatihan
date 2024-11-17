@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Save New Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="
+        sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous
+        "
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" th:href="@{../css/save-member.css}" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="form-box login">
+        <h2>Register Perpustakaan</h2>
+        <form action="#" th:action="@{member-save}" method="post">
+          <div class="form-input">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input
+              type="text"
+              name="member"
+              required
+              th:field="${member.memberName}"
+            />
+            <label>Nama Lengkap</label>
+          </div>
+          <div class="form-input">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <input
+              type="text"
+              name="user"
+              required
+              th:field="${member.username}"
+            />
+            <label>Username</label>
+          </div>
+          <div class="form-input">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input
+              type="password"
+              name="password"
+              required
+              th:field="${member.password}"
+            />
+            <label>Password</label>
+          </div>
+          <div class="form-input">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="number" name="nim" required th:field="${member.nim}" />
+            <label>Nomor Induk Mahasiswa</label>
+          </div>
+          <div class="form-input">
+            <span class="icon"><i class="fa-solid fa-home"></i></span>
+            <input
+              type="text"
+              name="address"
+              required
+              th:field="${member.address}"
+            />
+            <label>Addrees</label>
+          </div>
+          <button type="submit" class="btn">Daftar Sekarang</button>
+          <div class="login-register">
+            <p>
+              <a th:href="@{/login}" class="register-link"
+                >Sudah Mempunyai Akun? Masuk</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

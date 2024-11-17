@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Update Message</title>
+    <link rel="stylesheet" th:href="@{../css/save.css}" />
+  </head>
+  <body>
+    <header>
+      <h1>Perpustakaan Digital</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a th:href="@{/member-home}">Dashboard</a></li>
+        <li><a th:href="@{/add-borrow}">Peminjaman Buku</a></li>
+        <li><a th:href="@{/add-back}">Pengembalian Buku</a></li>
+        <li><a th:href="@{/book-member}">Katalog Buku</a></li>
+        <li><a th:href="@{/add-message}" class="active">Pesan</a></li>
+      </ul>
+    </nav>
+    <div class="logout">
+      <a th:href="@{/login}"
+        ><img th:src="@{../css/door.png}" alt="library"
+      /></a>
+    </div>
+    <div class="container">
+      <h2>Edit Pesan</h2>
+      <form action="#" th:action="@{/message-save}" method="post" class="form">
+        <div class="input-box">
+          <input type="hidden" th:field="${message.id}" />
+        </div>
+        <div class="input-box">
+          <label>Nama Pengirim</label>
+          <select th:field="${message.idMember}" required class="option">
+            <option
+              th:each="member : ${member}"
+              th:value="${member.id}"
+              th:text="${member.memberName}"
+            ></option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label>Isi Pesan</label>
+          <textarea
+            cols="3"
+            rows="8"
+            class="option"
+            required
+            th:field="${message.content}"
+            placeholder="Ketik Pesan"
+          ></textarea>
+        </div>
+
+        <div class="input-box">
+          <label>Status Pesan</label>
+          <input
+            type="text"
+            required
+            th:field="${message.statusMessage}"
+            placeholder="Status Pesan"
+          />
+        </div>
+
+        <div class="input-box">
+          <label>Tanggal Kirim</label>
+          <input
+            type="date"
+            required
+            th:field="${message.dateSend}"
+            placeholder="Tanggal Kirim"
+          />
+        </div>
+
+        <button>Simpan Perubahan</button>
+      </form>
+    </div>
+  </body>
+</html>

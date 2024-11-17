@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SusiharyatiApplication",
+            "request": "launch",
+            "mainClass": "com.perpustakaan.susiharyati.SusiharyatiApplication",
+            "projectName": "susiharyati"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open sign-up.html",
+            "file": "c:\\Users\\user\\Documents\\PELATIHAN JAVA\\projek_uas\\susiharyati\\src\\main\\resources\\templates\\sign-up.html"
+        }
+    ]
+}

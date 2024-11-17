@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Update Data Member</title>
+  <link rel="stylesheet" th:href="@{../css/save-admin.css}">
+</head>
+
+<body>
+  <header>
+    <h1>Perpustakaan Digital</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a th:href="@{/home-admin}">Dashboard</a></li>
+      <li><a th:href="@{/member}" class="active">Data Anggota</a></li>
+      <li><a th:href="@{/book}">Katalog Buku</a></li>
+      <li><a th:href="@{/history-admin}">Riwayat Peminjaman</a></li>
+      <li><a th:href="@{/message-admin}">Pesan</a></li>
+
+    </ul>
+  </nav>
+  <div class="logout">
+    <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+  </div>
+  <div class="container">
+    <h2>Update Buku</h2>
+    <form th:action="@{/member-save}" method="post" th:object="${member}" class="form">
+      <input type="hidden" th:field="*{id}" />
+      <div class="input-box">
+        <label>Nama Anggota</label>
+        <input type="text" required th:field="*{memberName}" placeholder="Masukan Nama Lengkap" />
+      </div>
+
+      <div class="input-box">
+        <label>Username</label>
+        <input type="text" required th:field="*{username}" placeholder="Masukan Nama Pengguna" />
+      </div>
+
+      <div class="input-box">
+        <label>Password</label>
+        <input type="password" required th:field="*{password}" placeholder="Masukan Password" />
+      </div>
+
+      <div class="input-box">
+        <label>Nomor Induk Mahasiswa</label>
+        <input type="number" required th:field="*{nim}" placeholder="Masukan NIM" />
+      </div>
+
+      <div class="input-box">
+        <label>Alamat Anggota</label>
+        <textarea cols="3" rows="8" 
+        class="option"
+        required
+        th:field="*{address}"></textarea>
+      </div>
+
+      <button>Simpan Perubahan</button>
+    </form>
+  </div>
+</body>
+
+</html>

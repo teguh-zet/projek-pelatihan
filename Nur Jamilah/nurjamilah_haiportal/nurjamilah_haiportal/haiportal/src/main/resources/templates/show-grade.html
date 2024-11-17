@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Nilai Mahasiswa</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/style2.css}" />
+    <link rel="stylesheet" th:href="@{/style3.css}" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul id="menu">
+        <li id="nav-item">
+          <a th:href="@{/home}" id="nav-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-student}" id="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Mahasiswa</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-lecturer}" id="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Dosen</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-major}" id="nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Jurusan</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-matkul}" id="nav-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Mata Kuliah</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-room}" id="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Room</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/list-schedule}" id="nav-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Jadwal</span>
+          </a>
+        </li>
+        <li id="nav-item">
+          <a th:href="@{/show-grade}" id="nav-item">
+            <i class="fas fa-star"></i>
+            <span>Nilai Mahasiswa</span>
+          </a>
+        </li>
+        <li id="logout nav-item">
+          <a th:href="@{/login}" id="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="main--content">
+      <div id="header--wrapper">
+        <div id="header--title">
+          <img src="logo.png" alt="" />
+          <h2 id="hai">Academic Information Portal</h2>
+        </div>
+        <div id="user--info">
+          <div id="search--box">
+            <p>Anda Login Sebagai Admin</p>
+          </div>
+        </div>
+      </div>
+
+      <main id="table" class="utama">
+        <section id="table--header">
+          <h4 id="hai4">Daftar Nilai</h4>
+        </section>
+        <section id="table--body">
+          <table class="tabel">
+            <thead class="tabel-utama">
+              <tr class="teer">
+                <th scope="col" class="jdl">NIM</th>
+                <th scope="col" class="jdl">Mahasiswa</th>
+                <th scope="col" class="jdl">Matakuliah</th>
+                <th scope="col" class="jdl">Nilai</th>
+              </tr>
+            </thead>
+            <tbody class="tabody">
+              <tr th:each="grade : ${grades}" class="teer">
+                <td th:text="${grade.student.nim}" class="tdnya"></td>
+                <td th:text="${grade.student.name}" class="tdnya"></td>
+                <td th:text="${grade.matkul.name}" class="tdnya"></td>
+                <td th:text="${grade.value}" class="tdnya"></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

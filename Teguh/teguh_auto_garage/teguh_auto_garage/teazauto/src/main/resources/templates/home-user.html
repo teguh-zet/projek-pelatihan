@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Home user </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    .card-car {
+      width: 400px;
+      max-height: 450px;
+      box-shadow: 0px 0px 14px 0px rgba(196,196,196,0.73);
+-webkit-box-shadow: 0px 0px 14px 0px rgba(196,196,196,0.73);
+-moz-box-shadow: 0px 0px 14px 0px rgba(196,196,196,0.73);
+
+    }.sss {
+      padding: 10px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+
+      flex-direction: row;
+      flex-wrap: wrap;
+      box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+      -webkit-box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+      -moz-box-shadow: 0px 0px 14px 0px rgba(196, 196, 196, 0.73);
+
+
+    }
+
+    .info {
+      margin-bottom: 10px;
+    }
+    
+
+    .logo-place {
+      box-shadow: 0px 6px 9px -1px rgba(112, 112, 112, 0.75);
+      -webkit-box-shadow: 0px 6px 9px -1px rgba(112, 112, 112, 0.75);
+      -moz-box-shadow: 0px 6px 9px -1px rgba(112, 112, 112, 0.75);
+    }
+  </style>
+
+</head>
+
+<body class="bg-dark">
+
+  <div th:replace="~{fragments/component-nav-user :: navbar-user}"></div>
+  <!-- <div th:replace="~{fragments/component-nav-user :: sidebar-admin}"></div> -->
+
+  <!-- firs layout -->
+  <div class="container-fluid bg-dark text-light text-center " style="height: 100vh">
+    <!-- carousel images -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExamleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active ">
+          <img th:src="@{/bmw3.jpeg}" style="height: 600px;" class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h5>BMW 435i Coupe M-Sport</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img th:src="@{/bmw2.jpeg}" style="height: 600px;" class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h5>BMW M4 G82 Competition</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img th:src="@{/ferrari1.jpeg}" style="height: 600px;" class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h5>Ferrari 488 Spyder</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- end carousel images  -->
+    <div class="row rext-center bg-dark align-items-center mt-4 mb-4" id="info">
+      <div class="col-12">
+        <img th:src="@{/logo.png}" width="200" height="150" alt="" />
+        <h2 class="mt-2">🏁 Teaz auto garage 🏁</h2>
+        <i>"Classy Used Cars, Unlimited Style. Choose <span style="color: coral;"> Teaz Auto</span>, True Elegance."
+          🍻</i><br>
+        <I>Welcome to Teaz Auto Garage, where your journey to your dream car begins. <br> We understand that every used
+          vehicle has its own story, and at Teaz,<br> we are committed to helping you find the car that suits your needs
+          and lifestyle🍻🍻.</I>
+      </div>
+    </div>
+    <div class="row bg-dark text-light logo-place">
+      <div class="col-3 border border-1">
+        <h2>Sort</h2>
+        <div class="container text-center mt-2">
+          <div class="row row-cols-2">
+            <div class="col mt-2">
+              <a th:href="@{/search-by-price-asc-user}"><button class="bbb btn btn-warning">Price Asc</button></a>
+
+            </div>
+            <div class="col">
+              <a th:href="@{/search-by-price-desc-user}"><button class="bbb btn btn-warning">Price Desc</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="row row-col-1">
+          <div class="col mt-5 mb-4">
+            <h1>search by model</h1>
+          </div>
+        </div>
+        <div class="row row-col-1 mt-3">
+          <div class="col">
+            <form class="form-group" action="#" th:action="@{/search-by-model-user}" method="get">
+              <input type="text" placeholder="search by Model" class="sss" name="search" />
+              <input type="submit" value="Cari" class="sss" />
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-9 border border-1 cards ">
+        <div class="col-8">
+          <h2>Car List</h2>
+        </div>
+        <p th:text="${error}"></p>
+        <div class="card bg-dark text-light card-car mt-4 " th:each="c : ${cars}">
+
+          <img th:src="${c.imagePath}" class="card-img-top" alt="..." width="100" height="150">
+          <div class="card-body text-start">
+            <p class="card-title" th:text="'model       : '+${c.model}"></p>
+            <p class="card-text" th:text="'price       : '+${c.price}"></p>
+            <p class="card-text" th:text="'color       : '+${c.color}"></p>
+            <p class="card-text" th:text="'Kilometer   : '+${c.km}"></p>
+            <p class="card-text" th:text="'year        : '+${c.year}"></p>
+
+
+            <a th:href="@{/form-transaction/{id}(id=${c.id})}" class=" text-center btn btn-warning fluid d-flex">Buy Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col">
+        One of three columns
+      </div> -->
+      <div th:replace="~{fragments/footer :: footer}"></div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

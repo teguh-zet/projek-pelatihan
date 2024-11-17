@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Save History</title>
+    <link rel="stylesheet" th:href="@{../css/save-admin.css}">
+</head>
+
+<body>
+    <header>
+        <h1>Perpustakaan Digital</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/home-admin}">Dashboard</a></li>
+            <li><a th:href="@{/member}">Data Anggota</a></li>
+            <li><a th:href="@{/book}">Katalog Buku</a></li>
+            <li><a th:href="@{/history-admin}" class="active">Riwayat Peminjaman</a></li>
+            <li><a th:href="@{/message-admin}">Pesan</a></li>
+        </ul>
+    </nav>
+    <div class="logout">
+        <a th:href="@{/login}"><img th:src="@{../css/door.png}" alt="library"></a>
+    </div>
+    <div class="container">
+        <h2>Riwayat Peminjaman</h2>
+        <form action="#" th:action="@{/history-save}" method="post" class="form">
+            <div class="input-box">
+                <label>Masukan id buku</label>
+                <select th:field="${history.idBook}" required>
+                    <option th:each="book : ${book}" th:value="${book.id}" th:text="${book.id}"></option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Masukan id anggota</label>
+                <select th:field="${history.idMember}" required>
+                    <option th:each="member : ${member}" th:value="${member.id}" th:text="${member.id}"></option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Masukan id Peminjaman</label>
+                <select th:field="${history.idBorrow}" required>
+                    <option th:each="borrow : ${borrow}" th:value="${borrow.id}" th:text="${borrow.id}"></option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Masukan id Pengembalian</label>
+                <select th:field="${history.idBack}" required>
+                    <option th:each="back : ${back}" th:value="${back.id}" th:text="${back.id}"></option>
+                </select>
+            </div>
+
+            <button>Simpan</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Super Admin</title>
+    <link rel="stylesheet" th:href="@{/css/show.css}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous"/>
+</head>
+<body>
+    <header>
+        <div class="right">
+            <img th:src="@{/1.png}" alt="" class="log">
+            <h1>SIM Rekam Medis</h1>
+        </div>
+        <div class="left">
+            <i class="bi bi-search"></i>
+            <i class="bi bi-person-circle"></i>
+        </div>
+    </header>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+        <span id="btn">&#9776;</span>
+        <span id="cancel">&#10006;</span>
+    </label>
+
+    <nav class="sidebar">
+        <!-- Your sidebar content -->
+        <div class="text">
+            <a th:href="@{/home}"><i class="bi bi-house-door"></i>Home</a>
+        </div>
+        <ul>
+            <li><a th:href="@{/home}"><i class="bi bi-person"></i>Menu</a></li>
+            <li><a th:href="@{/login}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="container-main">
+            <h2>Show Admin</h2>
+            <a th:href="@{/save-admin}" class="btn btn-primary btn-sm mb-3">Add Admin</a>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered w-100">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Telp</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="admin : ${adminList}">
+                            <td th:text="${admin.id}" class="text-center"></td>
+                            <td th:text="${admin.name}"></td>
+                            <td th:text="${admin.username}"></td>
+                            <td th:text="${admin.password}"></td>
+                            <td th:text="${admin.telp}"></td>
+                            <td class="d-flex flex-row justify-content-evenly">
+                                <a th:href="@{/update-admin/{id}(id=${admin.id})}" class="btn btn-warning">Update</a>
+                                <a th:href="@{/delete-superAdmin/{id}(id=${admin.id})}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Your footer content -->
+        <div class="copy">
+            <a href="">&copy; Copyright 2022 by AS</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Car List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <style>
+        body {
+            overflow-x: hidden;
+            /* overflow-y: hidden; */
+            padding: 0;
+
+        }
+
+        .tabel{
+            display: flex;
+            justify-content: center;
+        }
+      
+
+      
+
+        
+
+
+        
+       
+       
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div th:replace="~{fragments/component-navbar-admin :: navbar-admin}"></div>
+    
+    <div class="row bg-dark fluid">
+        <div class="row ">
+
+
+            <h2 class="text-light text-center">Car List</h2>
+            <div class="container mt-3">
+                <div class="row g-3">
+                    <div class="col-sm-7">
+                        <form action="#" th:action="@{/search-by-model}" method="get">
+                            <input type="text" placeholder="search by Model" name="search" />
+                            <input type="submit" value="Cari" />
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <a th:href="@{/search-by-price-asc}"><button>Sort By Price Asc</button></a>
+                </div>
+            </div>
+
+            
+                <a th:href="@{/add}" class="text-light  btn btn-secondary" style="width: 200px;">Add Car</a>
+
+        </div>
+        <div class="col-sm">
+            <form th:action="@{/search-by-brand}" method="get">
+                <label for="brand">Select Brand:</label>
+                <select id="brand" name="brand">
+                    <option th:each="brand : ${brand}" th:value="${brand.id}" th:text="${brand.name}">
+                    </option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="table-responsive tabel">
+            <table
+                class="table table-dark align-item-center align-middle table-hover table-bordered w-75 mb-4 mx-4 mt-1">
+                <thead class="table-dark  text-center">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Kilometer</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="c : ${cars}">
+                        <td th:text="${c.id}" class="text-center"></td>
+                        <td th:text="${c.brand.name}"></td>
+                        <td th:text="${c.model}"></td>
+                        <td th:text="Rp + ${c.price}"></td>
+                        <td th:text="${c.color}"></td>
+                        <td th:text="${c.km}"></td>
+                        <td>
+                            <img th:src="${c.imagePath} " alt="mobil" class="img-thumbnail">
+                        </td>
+                        <td class="d-flex flex-row justify-content-evenly">
+
+                            <a th:href="@{/edit/{id}(id=${c.id})}" class="btn btn-warning ">Update</a>
+                            <a class="btn btn-danger " th:href="@{/delete-car/{id}(id=${c.id})}">Delete</a>
+                        </td>
+                        <td th:text="${c.statue}"></td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

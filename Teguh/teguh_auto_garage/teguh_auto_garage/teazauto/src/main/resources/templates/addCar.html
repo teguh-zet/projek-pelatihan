@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Car</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Add Car</h2>
+    <form th:action="@{/add-car}" method="post" th:object="${car}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="brand">Brand:</label>
+            <!-- <input type="text" th:field="*{model}"  class="form-control" id="brand" name="brand" required/> -->
+            <select class="form-select" id="validationDefault05" th:field="*{brand.id}" required >
+
+                <option 
+                th:each="br : ${brand}"
+                th:value="${br.id}"
+                th:text="${br.name}"
+                ></option>
+            </select>
+        </div>
+        <!-- <label for="validationDefault04" class="form-label">merk </label>
+            <option selected disabled value="">Choose...</option> -->
+     
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" th:field="*{model}" class="form-control" id="model" name="model" required/>
+        </div>
+        <div class="form-group">
+            <label for="model">Color:</label>
+            <input type="text" th:field="*{color}" class="form-control" id="model" name="model" required/>
+        </div>
+        <div class="form-group">
+            <label for="model">Kilometer:</label>
+            <input type="text" th:field="*{km}" class="form-control" id="model" name="model" required/>
+        </div>
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number"th:field="*{year}" class="form-control" id="year" name="year" required/>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number"th:field="*{price}" class="form-control" id="price" name="price" required/>
+        </div>
+        <div class="form-group">
+            <label for="image">Image:</label>
+            <!-- <input type="file"  th:field="*{imagePath}"/> -->
+            <input type="file"class="form-control-file" id="image" name="file" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Add Car</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6qF8e00tbBmL4f3wbMZ3n3NbN9T9abj"
+            crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FashionStore</title>
+    <link rel="stylesheet" href="info.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../Asset/FashionStore.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+  </head>
+  <body>
+    <header class="fixed-header">
+      <div class="header-content">
+        <a th:href="@{home}" class="btn-back"
+          ><i class="fa fa-arrow-left"></i
+        ></a>
+        <h1>PhoneStore</h1>
+      </div>
+    </header>
+    <section id="home">
+      <div class="container-2">
+        <div class="info-1">
+          <h1>Selamat Datang di PhoneStore</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem,
+            nesciunt molestias! Deserunt at officia ipsum distinctio, inventore
+            quibusdam corporis ex nulla, nobis quia dolorem nihil tenetur,
+            excepturi quod tempore quas! Fugit reprehenderit iusto consequatur,
+            saepe hic dolore quia. Distinctio qui vero modi perspiciatis eaque
+            incidunt magni quasi. Sunt deleniti magni praesentium eaque,
+            debitis, nisi voluptate, earum maxime fugiat alias quae? Ullam
+            nesciunt iure corrupti veniam itaque blanditiis fugit eaque natus
+            praesentium, magnam culpa quam unde sequi, maxime, suscipit dolores
+            quibusdam quidem voluptatum ducimus nisi. A aliquam hic
+            voluptatibus? Fugiat, nihil! Unde maxime dignissimos velit nostrum
+            praesentium, enim corporis numquam possimus, quibusdam nihil nobis
+            facere. Magnam necessitatibus nisi itaque placeat, magni, suscipit
+            porro laudantium molestiae aliquam architecto alias laboriosam
+            quibusdam ex? Fugit est facere distinctio architecto iste, in
+            voluptatibus pariatur reiciendis delectus ad dolorum officia. Ut
+            quia cupiditate mollitia beatae, alias quasi voluptatum perspiciatis
+            non dolorum voluptatem hic fugiat nulla veritatis? Lorem ipsum dolor
+            sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <img src="../static/info-1.png" th:src="@{info-1.png}" alt="" />
+      </div>
+    </section>
+
+    <div id="gambar-about">
+      <div class="container-3">
+        <img src="../static/info-3.jpg" th:src="@{info-3.jpg}" alt="" />
+        <img src="../static/info-4.jpg" th:src="@{info-4.jpg}" alt="" />
+        <img src="../static/info-5.webp" th:src="@{info-5.webp}" alt="" />
+      </div>
+    </div>
+
+    <div id="about">
+      <div class="container-2">
+        <img src="../static/info-6.webp" th:src="@{info-6.webp}" alt="" />
+        <div class="info-1">
+          <h2>Tentang PhoneStore</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+            suscipit purus a tortor iaculis, non fringilla tortor lacinia. Nulla
+            sed neque ut elit scelerisque cursus id ac justo. Nunc cursus, neque
+            sit amet aliquet luctus, ex felis sollicitudin risus, ut consectetur
+            nulla nisi eu arcu. Integer sollicitudin aliquam orci, eget
+            consectetur nisi blandit id. Nulla facilisi.
+          </p>
+          <p>
+            Praesent eget mi sit amet nibh vehicula euismod non nec neque. Etiam
+            vehicula efficitur sapien, a lacinia magna tristique vel. Cras sit
+            amet quam nulla. Sed sit amet nulla sit amet velit posuere
+            dignissim. Pellentesque sodales risus in sapien tincidunt
+            consectetur. Donec ut ex fermentum, pharetra metus nec, eleifend
+            risus. Nullam et tortor eget ligula rhoncus tincidunt vel at eros.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-1">
+        <div class="title-follow-us">
+          <h1 class="judul-footer">PhoneStore</h1>
+          <div class="follow-us">
+            <p>Ikuti Kami</p>
+            <div class="media-icons">
+              <a href="https://web.facebook.com/"
+                ><i class="fa fa-facebook"></i
+              ></a>
+              <a
+                href="https://blog.twitter.com/in_id/topics/insights/2019/10-top-brand-di-Twitter-di-Indonesia"
+                ><i class="fa fa-twitter"></i
+              ></a>
+              <a href="https://www.instagram.com/?utm_source=pwa_homescreen"
+                ><i class="fa fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/results?search_query=fashion+2023"
+                ><i class="fa fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="help-legal-info">
+          <div class="help">
+            <p><u>Bantuan</u></p>
+            <p>Bantuan & FAQ</p>
+            <p>Pengiriman</p>
+            <p>Kebijakan Pengembalian</p>
+            <p>Bayar dalam 3 Angsuran</p>
+          </div>
+          <div class="legal-info">
+            <p><u>Informasi Hukum</u></p>
+            <p>Kebijakan Privasi</p>
+            <p>Syarat & Ketentuan</p>
+            <p>Kebijakan Cookie</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-2">
+        <p>© 2023 Ars Gadget. All rights reserved.</p>
+        <p>Support: support@ArsPhone.com</p>
+        <p>
+          South Quarter, Jl. R.A. Kartini No.Kav. 8, Cilandak, Jakarta Selatan,
+          DKI Jakarta 12430
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
